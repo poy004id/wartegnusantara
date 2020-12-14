@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2020 at 06:36 AM
--- Server version: 8.0.18
--- PHP Version: 7.3.11
+-- Generation Time: Dec 14, 2020 at 03:59 PM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,17 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `codeigniterauth`
+-- Database: `wartegnusantara`
 --
+CREATE DATABASE IF NOT EXISTS `wartegnusantara` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `wartegnusantara`;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `emailconfig`
+--
+-- Creation: Nov 30, 2020 at 06:54 AM
 --
 
 CREATE TABLE `emailconfig` (
@@ -33,11 +37,11 @@ CREATE TABLE `emailconfig` (
   `fromemail` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `fromname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `protocol` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `host` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `security` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `port` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `host` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `security` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `port` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -54,6 +58,8 @@ INSERT INTO `emailconfig` (`id`, `fromemail`, `fromname`, `protocol`, `host`, `u
 --
 -- Table structure for table `logs`
 --
+-- Creation: Nov 30, 2020 at 06:54 AM
+--
 
 CREATE TABLE `logs` (
   `id` int(255) NOT NULL,
@@ -61,18 +67,37 @@ CREATE TABLE `logs` (
   `time` time NOT NULL,
   `reference` int(255) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `ip` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `location` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ip` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `location` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `browser` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `logs`
+--
+
+INSERT INTO `logs` (`id`, `date`, `time`, `reference`, `name`, `ip`, `location`, `browser`, `status`, `created_at`, `updated_at`) VALUES
+(13, '2020-11-30', '14:59:13', 1, 'Admin', '::1', NULL, 'Chrome', 'Success', '2020-11-30 14:59:13', '2020-11-30 14:59:13'),
+(14, '2020-11-30', '15:20:00', 1, 'Admin', '::1', NULL, 'Chrome', 'Success', '2020-11-30 15:20:00', '2020-11-30 15:20:00'),
+(15, '2020-12-04', '14:20:44', 1, 'Admin', '::1', NULL, 'Chrome', 'Success', '2020-12-04 14:20:44', '2020-12-04 14:20:44'),
+(16, '2020-12-04', '14:48:13', 1, 'Admin', '::1', NULL, 'Chrome', 'Success', '2020-12-04 14:48:13', '2020-12-04 14:48:13'),
+(17, '2020-12-04', '21:22:34', 1, 'Admin', '::1', NULL, 'Chrome', 'Success', '2020-12-04 21:22:34', '2020-12-04 21:22:34'),
+(18, '2020-12-11', '09:36:22', 1, 'Admin', '::1', NULL, 'Chrome', 'Success', '2020-12-11 09:36:22', '2020-12-11 09:36:22'),
+(19, '2020-12-14', '09:18:10', 1, 'Admin', '::1', NULL, 'Chrome', 'Success', '2020-12-14 09:18:10', '2020-12-14 09:18:10'),
+(20, '2020-12-14', '09:44:39', 1, 'Admin', '::1', NULL, 'Chrome', 'Success', '2020-12-14 09:44:39', '2020-12-14 09:44:39'),
+(21, '2020-12-14', '09:48:57', 1, 'Admin', '::1', NULL, 'Chrome', 'Success', '2020-12-14 09:48:57', '2020-12-14 09:48:57'),
+(22, '2020-12-14', '09:54:54', 1, 'Admin', '::1', NULL, 'Chrome', 'Success', '2020-12-14 09:54:54', '2020-12-14 09:54:54'),
+(23, '2020-12-14', '10:07:27', 1, 'Admin', '::1', NULL, 'Chrome', 'Success', '2020-12-14 10:07:27', '2020-12-14 10:07:27');
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `settings`
+--
+-- Creation: Nov 30, 2020 at 06:54 AM
 --
 
 CREATE TABLE `settings` (
@@ -81,7 +106,7 @@ CREATE TABLE `settings` (
   `timezone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `dateformat` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `timeformat` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `iprestriction` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `iprestriction` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -91,12 +116,14 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `language`, `timezone`, `dateformat`, `timeformat`, `iprestriction`, `created_at`, `updated_at`) VALUES
-(1, 'en', 'Asia/Manila', 'yyyy-mm-dd', '24', '', '2020-08-21 17:43:51', '2020-09-11 14:34:44');
+(1, 'en', 'Asia/Jakarta', 'yyyy-mm-dd', '24', '', '2020-08-21 17:43:51', '2020-11-30 15:51:42');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `users`
+--
+-- Creation: Nov 30, 2020 at 06:54 AM
 --
 
 CREATE TABLE `users` (
@@ -105,12 +132,12 @@ CREATE TABLE `users` (
   `new_email` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
   `password_hash` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
-  `firstname` varchar(191) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `lastname` varchar(191) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `firstname` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lastname` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
   `activate_hash` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
   `reset_hash` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
   `reset_expires` bigint(20) DEFAULT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT '0',
+  `active` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_at` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -164,7 +191,7 @@ ALTER TABLE `emailconfig`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `settings`
