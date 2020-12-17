@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?php echo base_url('category'); ?>" class="nav-link">
+                    <a href="<?php echo base_url('kategoribahanmakanan'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-tags"></i>
                         <p>Manajement Category</p>
                     </a>
@@ -42,7 +42,7 @@
                 </li>
                 <li class="nav-header">ACCOUNT</li>
                 <li class="nav-item">
-                    <a href="<?php echo base_url('auth/logout'); ?>" class="nav-link">
+                    <a href="<?php echo base_url('logout'); ?>" class="nav-link">
                         <i class="nav-icon far fa-circle text-danger"></i>
                         <p class="text">Logout</p>
                     </a>
