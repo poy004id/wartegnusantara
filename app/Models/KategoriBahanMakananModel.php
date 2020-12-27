@@ -10,7 +10,7 @@ class KategoriBahanMakananModel extends Model
         if($id === false){
             return $this->findAll();
         } else {
-            return $this->getWhere(['category_id' => $id]);
+            return $this->getWhere(['ID' => $id]);
         }
     }
 
@@ -21,11 +21,11 @@ class KategoriBahanMakananModel extends Model
 
     public function updateCategory($data, $id)
     {
-        return $this->db->table($this->table)->update($data, ['category_id' => $id]);
+        return $this->db->table($this->table)->update($data, ['ID' => $id]);
     }
 
-    public function deleteCategory($id)
+      public function delete()
     {
-        return $this->db->table($this->table)->delete(['category_id' => $id]);
+         return $this->db->table($this->table)->update($data,['ID' => $id]);
     }
 }

@@ -1,4 +1,4 @@
-<form action="http://localhost:8888/KategoriBahanMakanan/store"  name="create">
+<form action="<?php echo base_url('KategoriBahanMakanan/store'); ?>"  method="get">
   <div class="card">
     <div class="card-body">
 

@@ -35,8 +35,8 @@ class Validation
 	//--------------------------------------------------------------------
 
 	public $KategoriBahanMakanan = [
-			'category_name'     => 'required',
-			'category_status'     => 'required'
+			'NamaKategori'     => 'required',
+			'isActive'     => 'required'
 		];
 
 	public $KategoriBahanMakanan_errors = [

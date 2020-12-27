@@ -51,10 +51,10 @@
                                               <td><?php echo $row['isActive']; ?></td>
                                               <td>
                                                   <div class="btn-group">
-                                                      <a href="<?php echo base_url('category/edit/'.$row['ID']); ?>" class="btn btn-sm btn-success">
+                                                      <a href="<?php echo base_url('KategoriBahanMakanan/edit/'.$row['ID']); ?>" class="btn btn-sm btn-success">
                                                           <i class="fa fa-edit"></i>
                                                       </a>
-                                                      <a href="<?php echo base_url('category/delete/'.$row['ID']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?');">
+                                                      <a href="<?php echo base_url('KategoriBahanMakanan/delete/'.$row['ID']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?');">
                                                           <i class="fa fa-trash-alt"></i>
                                                       </a>
                                                   </div>
