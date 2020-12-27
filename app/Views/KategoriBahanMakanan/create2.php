@@ -5,7 +5,7 @@
  <h1>create2</h1>
       <div class="form-group">
           <label for="">Name</label>
-          <input type="text" class="form-control" name="NamaKategori" placeholder=" category name" value="">
+          <input type="text" class="form-control" name="NamaKategori" placeholder=" category name" >
 
       </div>
       <div class="form-group">
