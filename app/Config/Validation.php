@@ -33,4 +33,18 @@ class Validation
 	//--------------------------------------------------------------------
 	// Rules
 	//--------------------------------------------------------------------
+
+	public $KategoriBahanMakanan = [
+			'category_name'     => 'required',
+			'category_status'     => 'required'
+		];
+
+	public $KategoriBahanMakanan_errors = [
+				'category_name' => [
+						'required'    => 'Nama category wajib diisi.',
+				],
+				'category_status'    => [
+						'required' => 'Status category wajib diisi.'
+				]
+	];
 }

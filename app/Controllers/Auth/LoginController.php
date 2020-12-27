@@ -81,7 +81,6 @@ class LoginController extends Controller
 		$this->session->set('userData', [
             'id' 			=> $user["id"],
             'name' 			=> $user["name"],
-            'firstname' 	=> $user["firstname"],
             'lastname' 		=> $user["lastname"],
             'email' 		=> $user["email"],
             'new_email' 	=> $user["new_email"]
