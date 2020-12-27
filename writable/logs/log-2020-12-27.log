@@ -764,3 +764,11 @@ CRITICAL - 2020-12-27 19:20:11 --> Undefined index: NamaKategori
 #7 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
 #8 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
 #9 {main}
+CRITICAL - 2020-12-27 19:43:23 --> syntax error, unexpected end of file, expecting function (T_FUNCTION) or const (T_CONST)
+#0 D:\project\wartegnusantara\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('KategoriBahanMa...')
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('KategoriBahanMa...')
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2020 at 05:13 AM
+-- Generation Time: Dec 27, 2020 at 02:13 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `wartegnusantara`
 --
+CREATE DATABASE IF NOT EXISTS `wartegnusantara` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `wartegnusantara`;
 
 -- --------------------------------------------------------
 
@@ -28,11 +30,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `bahanmakanan`
 --
 
-CREATE TABLE `bahanmakanan` (
-  `ID` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `bahanmakanan` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
   `NamaBahanBaku` varchar(50) NOT NULL,
   `Qty` int(4) NOT NULL,
-  `KategoriBahanMakananID` int(10) NOT NULL
+  `KategoriBahanMakananID` int(10) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FKBahanMakan152387` (`KategoriBahanMakananID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -41,12 +45,15 @@ CREATE TABLE `bahanmakanan` (
 -- Table structure for table `detailpemesanan`
 --
 
-CREATE TABLE `detailpemesanan` (
+CREATE TABLE IF NOT EXISTS `detailpemesanan` (
   `ID` int(10) NOT NULL,
   `PemesananID` int(10) NOT NULL,
   `MenuMakananID` int(10) NOT NULL,
   `Qty` int(4) NOT NULL,
-  `Harga` int(10) NOT NULL
+  `Harga` int(10) NOT NULL,
+  PRIMARY KEY (`ID`,`PemesananID`,`MenuMakananID`),
+  KEY `FKDetailPeme798786` (`PemesananID`),
+  KEY `FKDetailPeme568681` (`MenuMakananID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -55,8 +62,8 @@ CREATE TABLE `detailpemesanan` (
 -- Table structure for table `emailconfig`
 --
 
-CREATE TABLE `emailconfig` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `emailconfig` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `fromemail` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `fromname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `protocol` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -66,8 +73,9 @@ CREATE TABLE `emailconfig` (
   `port` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `emailconfig`
@@ -82,9 +90,10 @@ INSERT INTO `emailconfig` (`id`, `fromemail`, `fromname`, `protocol`, `host`, `u
 -- Table structure for table `job`
 --
 
-CREATE TABLE `job` (
-  `ID` int(10) NOT NULL,
-  `NamaJob` varchar(255) NOT NULL
+CREATE TABLE IF NOT EXISTS `job` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
+  `NamaJob` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -93,10 +102,22 @@ CREATE TABLE `job` (
 -- Table structure for table `kategoribahanmakanan`
 --
 
-CREATE TABLE `kategoribahanmakanan` (
-  `ID` int(10) NOT NULL,
-  `NamaKategory` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `kategoribahanmakanan` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
+  `NamaKategori` varchar(100) NOT NULL,
+  `isActive` tinyint(1) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `kategoribahanmakanan`
+--
+
+INSERT INTO `kategoribahanmakanan` (`ID`, `NamaKategori`, `isActive`) VALUES
+(1, 'sayuran', 0),
+(2, 'rempah rempah', 0),
+(3, 'sayuran', 0),
+(4, 'rempah rempah', 0);
 
 -- --------------------------------------------------------
 
@@ -104,9 +125,10 @@ CREATE TABLE `kategoribahanmakanan` (
 -- Table structure for table `kategorimakanan`
 --
 
-CREATE TABLE `kategorimakanan` (
-  `ID` int(10) NOT NULL,
-  `KategoryMakanan` varchar(100) NOT NULL
+CREATE TABLE IF NOT EXISTS `kategorimakanan` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
+  `KategoryMakanan` varchar(100) NOT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -115,8 +137,8 @@ CREATE TABLE `kategorimakanan` (
 -- Table structure for table `logs`
 --
 
-CREATE TABLE `logs` (
-  `id` int(255) NOT NULL,
+CREATE TABLE IF NOT EXISTS `logs` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
   `time` time NOT NULL,
   `reference` int(255) NOT NULL,
@@ -126,8 +148,9 @@ CREATE TABLE `logs` (
   `browser` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `logs`
@@ -150,7 +173,8 @@ INSERT INTO `logs` (`id`, `date`, `time`, `reference`, `name`, `ip`, `location`,
 (26, '2020-12-17', '20:41:59', 1, 'Admin', '::1', NULL, 'Chrome', 'Success', '2020-12-17 20:41:59', '2020-12-17 20:41:59'),
 (27, '2020-12-17', '20:42:19', 1, 'Admin', '::1', NULL, 'Chrome', 'Success', '2020-12-17 20:42:19', '2020-12-17 20:42:19'),
 (28, '2020-12-17', '20:46:19', 1, 'Admin', '::1', NULL, 'Chrome', 'Success', '2020-12-17 20:46:19', '2020-12-17 20:46:19'),
-(29, '2020-12-17', '21:14:01', 1, 'Admin', '::1', NULL, 'Chrome', 'Success', '2020-12-17 21:14:01', '2020-12-17 21:14:01');
+(29, '2020-12-17', '21:14:01', 1, 'Admin', '::1', NULL, 'Chrome', 'Success', '2020-12-17 21:14:01', '2020-12-17 21:14:01'),
+(30, '2020-12-27', '20:12:00', 1, 'Admin', '::1', NULL, 'Chrome', 'Success', '2020-12-27 20:12:00', '2020-12-27 20:12:00');
 
 -- --------------------------------------------------------
 
@@ -158,13 +182,15 @@ INSERT INTO `logs` (`id`, `date`, `time`, `reference`, `name`, `ip`, `location`,
 -- Table structure for table `menumakanan`
 --
 
-CREATE TABLE `menumakanan` (
-  `ID` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `menumakanan` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
   `Nama` varchar(255) NOT NULL,
   `Qty` int(10) NOT NULL,
   `Keterangan` varchar(255) DEFAULT NULL,
   `HargaPerPorsi` int(5) NOT NULL,
-  `KategoriMakananID` int(10) NOT NULL
+  `KategoriMakananID` int(10) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FKMenuMakana417765` (`KategoriMakananID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -173,13 +199,16 @@ CREATE TABLE `menumakanan` (
 -- Table structure for table `pemesanan`
 --
 
-CREATE TABLE `pemesanan` (
-  `ID` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `pemesanan` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
   `PembeliID` int(10) NOT NULL,
   `Tanggal` date NOT NULL,
   `TotalBayar` int(10) NOT NULL,
   `UserID` int(10) NOT NULL,
-  `usersID` int(11) NOT NULL
+  `usersID` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FKPemesanan601987` (`UserID`),
+  KEY `usersID` (`usersID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -188,11 +217,14 @@ CREATE TABLE `pemesanan` (
 -- Table structure for table `resep`
 --
 
-CREATE TABLE `resep` (
-  `ID` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `resep` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
   `MenuMakananID` int(10) NOT NULL,
   `BahanMakananID` int(10) NOT NULL,
-  `Qty` int(4) NOT NULL
+  `Qty` int(4) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FKResep482739` (`MenuMakananID`),
+  KEY `FKResep338545` (`BahanMakananID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -201,16 +233,17 @@ CREATE TABLE `resep` (
 -- Table structure for table `settings`
 --
 
-CREATE TABLE `settings` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `settings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `language` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `timezone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `dateformat` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `timeformat` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `iprestriction` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `updated_at` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `settings`
@@ -225,8 +258,8 @@ INSERT INTO `settings` (`id`, `language`, `timezone`, `dateformat`, `timeformat`
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `new_email` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
   `password_hash` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
@@ -236,10 +269,12 @@ CREATE TABLE `users` (
   `activate_hash` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
   `reset_hash` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
   `reset_expires` bigint(20) DEFAULT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT 0,
+  `active` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `updated_at` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `updated_at` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `JobID` (`JobID`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `users`
@@ -247,161 +282,6 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `new_email`, `password_hash`, `name`, `JobID`, `lastname`, `activate_hash`, `reset_hash`, `reset_expires`, `active`, `created_at`, `updated_at`) VALUES
 (1, 'admin@example.com', NULL, '$2y$10$/clmNLUUxGnREFHqraU7P.aVfJ5Mk0iEKRgKVz8.ZKOZIUGJGXlya', 'Admin', 0, 'User', 'ZEWv2TUIY5oDqgw9FkjnmAS78zJNKfpL', NULL, NULL, 1, '2020-08-04 16:07:50', '2020-09-11 14:32:51');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `bahanmakanan`
---
-ALTER TABLE `bahanmakanan`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `FKBahanMakan152387` (`KategoriBahanMakananID`);
-
---
--- Indexes for table `detailpemesanan`
---
-ALTER TABLE `detailpemesanan`
-  ADD PRIMARY KEY (`ID`,`PemesananID`,`MenuMakananID`),
-  ADD KEY `FKDetailPeme798786` (`PemesananID`),
-  ADD KEY `FKDetailPeme568681` (`MenuMakananID`);
-
---
--- Indexes for table `emailconfig`
---
-ALTER TABLE `emailconfig`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `job`
---
-ALTER TABLE `job`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `kategoribahanmakanan`
---
-ALTER TABLE `kategoribahanmakanan`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `kategorimakanan`
---
-ALTER TABLE `kategorimakanan`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `logs`
---
-ALTER TABLE `logs`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `menumakanan`
---
-ALTER TABLE `menumakanan`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `FKMenuMakana417765` (`KategoriMakananID`);
-
---
--- Indexes for table `pemesanan`
---
-ALTER TABLE `pemesanan`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `FKPemesanan601987` (`UserID`),
-  ADD KEY `usersID` (`usersID`);
-
---
--- Indexes for table `resep`
---
-ALTER TABLE `resep`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `FKResep482739` (`MenuMakananID`),
-  ADD KEY `FKResep338545` (`BahanMakananID`);
-
---
--- Indexes for table `settings`
---
-ALTER TABLE `settings`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `JobID` (`JobID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `bahanmakanan`
---
-ALTER TABLE `bahanmakanan`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `emailconfig`
---
-ALTER TABLE `emailconfig`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `job`
---
-ALTER TABLE `job`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `kategoribahanmakanan`
---
-ALTER TABLE `kategoribahanmakanan`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `kategorimakanan`
---
-ALTER TABLE `kategorimakanan`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `logs`
---
-ALTER TABLE `logs`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
---
--- AUTO_INCREMENT for table `menumakanan`
---
-ALTER TABLE `menumakanan`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `pemesanan`
---
-ALTER TABLE `pemesanan`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `resep`
---
-ALTER TABLE `resep`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `settings`
---
-ALTER TABLE `settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables

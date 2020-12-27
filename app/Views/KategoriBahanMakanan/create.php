@@ -19,10 +19,10 @@
     <div class="container-fluid">
       <div class="row">
           <div class="col-md-6">
-            <form action="<?php echo base_url('KategoriBahanMakanan/store'); ?>" method="get">
+            <form action="<?php echo base_url('KategoriBahanMakanan/store'); ?>" method="post">
               <div class="card">
                 <div class="card-body">
-                  <!-- <?php
+                  <?php
                   $inputs = session()->getFlashdata('inputs');
                   $errors = session()->getFlashdata('errors');
                   if(!empty($errors)){ ?>
@@ -34,12 +34,12 @@
                     <?php endforeach ?>
                     </ul>
                   </div>
-                  <?php } ?> -->
+                  <?php } ?>
 
                   <div class="form-group">
                       <label for="">Name</label>
                       <input type="text" class="form-control" name="NamaKategori" placeholder=" category name" value="">
-                      
+
                   </div>
                   <div class="form-group">
                       <label for="">Status</label>
@@ -51,7 +51,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                    <!-- <a href="<?php echo base_url('kategoribahanmakanan'); ?>" class="btn btn-outline-info">Back</a> -->
+                    <a href="<?php echo base_url('kategoribahanmakanan'); ?>" class="btn btn-outline-info">Back</a>
                     <button type="submit" class="btn btn-primary float-right">Simpan</button>
                 </div>
               </div>

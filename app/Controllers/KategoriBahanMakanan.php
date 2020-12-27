@@ -43,29 +43,30 @@ class KategoriBahanMakanan extends BaseController
 
       public function store()
     {
-        $validation =  \Config\Services::validation();
 
-        $data = array(
-            'category_name'     => $this->request->getPost('category_name'),
-            'category_status'   => $this->request->getPost('category_status'),
-        );
-
-        if($validation->run($data, 'KategoriBahanMakanan') == FALSE){
-            session()->setFlashdata('inputs', $this->request->getPost());
-            session()->setFlashdata('errors', $validation->getErrors());
-            return redirect()->to(base_url('KategoriBahanMakanan/create'));
-        } else {
-            $model = new Category_model();
-            $simpan = $model->insertCategory($data);
-            if($simpan)
-            {
-                session()->setFlashdata('success', 'Created Category successfully');
-                return redirect()->to(base_url('category'));
-            }
-        }
+      echo "123";
+    //     $validation =  \Config\Services::validation();
+    //
+    //     $data = array(
+    //         'NamaKategori'     => $this->request->getPost('NamaKategori'),
+    //         'isActive'   => $this->request->getPost('isActive'),
+    //     );
+    //
+    //     if($validation->run($data, 'KategoriBahanMakanan') == FALSE){
+    //         session()->setFlashdata('inputs', $this->request->getPost());
+    //         session()->setFlashdata('errors', $validation->getErrors());
+    //         //return redirect()->to(base_url('KategoriBahanMakanan/create'));
+    //         echo "validasi gagal";
+    //     } else {
+    //       echo "validasi hore";
+    //         // $model = new Category_model();
+    //         // $simpan = $model->insertCategory($data);
+    //         // if($simpan)
+    //         // {
+    //         //     session()->setFlashdata('success', 'Created Category successfully');
+    //         //     return redirect()->to(base_url('category'));
+    //         // }
+    //     }
     }
-
-
-
 
 }
