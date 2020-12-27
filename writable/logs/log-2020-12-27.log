@@ -772,3 +772,110 @@ CRITICAL - 2020-12-27 19:43:23 --> syntax error, unexpected end of file, expecti
 #4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
 #5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
 #6 {main}
+CRITICAL - 2020-12-27 21:24:14 --> syntax error, unexpected '{'
+#0 D:\project\wartegnusantara\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('KategoriBahanMa...')
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('KategoriBahanMa...')
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}
+CRITICAL - 2020-12-27 21:26:47 --> syntax error, unexpected end of file, expecting function (T_FUNCTION) or const (T_CONST)
+#0 D:\project\wartegnusantara\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('KategoriBahanMa...')
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('KategoriBahanMa...')
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}
+CRITICAL - 2020-12-27 21:27:10 --> Cannot use isset() on the result of an expression (you can use "null !== expression" instead)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2020-12-27 21:34:48 --> Undefined index: submit
+#0 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'D:\\project\\wart...', 46, Array)
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->store()
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}
+CRITICAL - 2020-12-27 21:36:10 --> Undefined index: create
+#0 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'D:\\project\\wart...', 46, Array)
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->store()
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}
+CRITICAL - 2020-12-27 21:36:11 --> Undefined index: create
+#0 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'D:\\project\\wart...', 46, Array)
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->store()
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}
+CRITICAL - 2020-12-27 21:36:11 --> Undefined index: create
+#0 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'D:\\project\\wart...', 46, Array)
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->store()
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}
+CRITICAL - 2020-12-27 21:36:11 --> Undefined index: create
+#0 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'D:\\project\\wart...', 46, Array)
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->store()
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}
+CRITICAL - 2020-12-27 21:36:12 --> Undefined index: create
+#0 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'D:\\project\\wart...', 46, Array)
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->store()
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}
+CRITICAL - 2020-12-27 21:36:12 --> Undefined index: create
+#0 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'D:\\project\\wart...', 46, Array)
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->store()
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}
+CRITICAL - 2020-12-27 21:36:12 --> Undefined index: create
+#0 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'D:\\project\\wart...', 46, Array)
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->store()
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}
+CRITICAL - 2020-12-27 21:36:13 --> Undefined index: create
+#0 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'D:\\project\\wart...', 46, Array)
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->store()
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}
+CRITICAL - 2020-12-27 21:36:13 --> Undefined index: create
+#0 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'D:\\project\\wart...', 46, Array)
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->store()
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}
+CRITICAL - 2020-12-27 21:36:13 --> Undefined index: create
+#0 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'D:\\project\\wart...', 46, Array)
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->store()
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}

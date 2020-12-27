@@ -37,14 +37,13 @@ class KategoriBahanMakanan extends BaseController
       {
         // echo view('_partials/header', ['userData' => $this->session->userData]);
         // echo view('_partials/sidebar');
-        echo view('KategoriBahanMakanan/create');
+        echo view('KategoriBahanMakanan/create2');
         echo view('_partials/footer');
       }
 
       public function store()
     {
-
-      echo "123";
+    echo "123";
     //     $validation =  \Config\Services::validation();
     //
     //     $data = array(
