@@ -45,8 +45,8 @@
                       <label for="">Status</label>
                       <select name="isActive" id="" class="form-control">
                           <option value="">Pilih Kategori</option>
-                          <option value="Active" <?php echo $category['isActive'] == "Active" ? 'selected' : '' ?>>Active</option>
-                          <option value="Inactive" <?php echo $category['isActive'] == "Inactive" ? 'selected' : '' ?>>Inactive</option>
+                          <option value="1" <?php echo $category['isActive'] == "Active" ? 'selected' : '' ?>>Active</option>
+                          <option value="0" <?php echo $category['isActive'] == "Inactive" ? 'selected' : '' ?>>Inactive</option>
                       </select>
                   </div>
 

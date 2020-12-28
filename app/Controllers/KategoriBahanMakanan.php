@@ -69,13 +69,13 @@ class KategoriBahanMakanan extends BaseController
 
       public function delete($id)
       {
-      $data = array('isActive'   == 0,);
+      $data = array('isActive'=> 0);
       $model = new KategoriBahanMakananModel();
-      $hapus = $model->delete($data,$id);
+      $hapus = $model->del($data,$id);
       if($hapus)
       {
-          // session()->setFlashdata('warning', 'Deleted Category successfully');
-          // return redirect()->to(base_url('KategoriBahanMakanan'));
+          session()->setFlashdata('warning', 'Deleted Category successfully');
+           return redirect()->to(base_url('KategoriBahanMakanan'));
       }
       }
 

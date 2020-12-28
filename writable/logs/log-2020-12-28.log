@@ -310,3 +310,142 @@ CRITICAL - 2020-12-28 01:04:28 --> Declaration of App\Models\KategoriBahanMakana
 #9 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
 #10 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
 #11 {main}
+CRITICAL - 2020-12-28 01:06:31 --> Undefined variable: data
+#0 D:\project\wartegnusantara\app\Models\KategoriBahanMakananModel.php(29): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'D:\\project\\wart...', 29, Array)
+#1 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(74): App\Models\KategoriBahanMakananModel->delete2(Array, '9')
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->delete('9')
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#4 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#7 {main}
+CRITICAL - 2020-12-28 01:07:12 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '0 = 1
+WHERE `ID` = '9'' at line 1
+#0 D:\project\wartegnusantara\system\Database\MySQLi\Connection.php(331): mysqli->query('UPDATE `kategor...')
+#1 D:\project\wartegnusantara\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `kategor...')
+#2 D:\project\wartegnusantara\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `kategor...')
+#3 D:\project\wartegnusantara\system\Database\BaseBuilder.php(2456): CodeIgniter\Database\BaseConnection->query('UPDATE `kategor...', Array, false)
+#4 D:\project\wartegnusantara\app\Models\KategoriBahanMakananModel.php(29): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(74): App\Models\KategoriBahanMakananModel->delete2(Array, '9')
+#6 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->delete('9')
+#7 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#8 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#11 {main}
+CRITICAL - 2020-12-28 01:08:53 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '0 = 1
+WHERE `ID` = '9'' at line 1
+#0 D:\project\wartegnusantara\system\Database\MySQLi\Connection.php(331): mysqli->query('UPDATE `kategor...')
+#1 D:\project\wartegnusantara\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `kategor...')
+#2 D:\project\wartegnusantara\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `kategor...')
+#3 D:\project\wartegnusantara\system\Database\BaseBuilder.php(2456): CodeIgniter\Database\BaseConnection->query('UPDATE `kategor...', Array, false)
+#4 D:\project\wartegnusantara\app\Models\KategoriBahanMakananModel.php(29): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(74): App\Models\KategoriBahanMakananModel->del(Array, '9')
+#6 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->delete('9')
+#7 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#8 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#11 {main}
+CRITICAL - 2020-12-28 01:08:59 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '0 = 1
+WHERE `ID` = '5'' at line 1
+#0 D:\project\wartegnusantara\system\Database\MySQLi\Connection.php(331): mysqli->query('UPDATE `kategor...')
+#1 D:\project\wartegnusantara\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `kategor...')
+#2 D:\project\wartegnusantara\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `kategor...')
+#3 D:\project\wartegnusantara\system\Database\BaseBuilder.php(2456): CodeIgniter\Database\BaseConnection->query('UPDATE `kategor...', Array, false)
+#4 D:\project\wartegnusantara\app\Models\KategoriBahanMakananModel.php(29): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(74): App\Models\KategoriBahanMakananModel->del(Array, '5')
+#6 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->delete('5')
+#7 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#8 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#11 {main}
+CRITICAL - 2020-12-28 01:09:44 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '0 = 1
+WHERE `ID` = '7'' at line 1
+#0 D:\project\wartegnusantara\system\Database\MySQLi\Connection.php(331): mysqli->query('UPDATE `kategor...')
+#1 D:\project\wartegnusantara\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `kategor...')
+#2 D:\project\wartegnusantara\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `kategor...')
+#3 D:\project\wartegnusantara\system\Database\BaseBuilder.php(2456): CodeIgniter\Database\BaseConnection->query('UPDATE `kategor...', Array, false)
+#4 D:\project\wartegnusantara\app\Models\KategoriBahanMakananModel.php(29): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(74): App\Models\KategoriBahanMakananModel->del(Array, '7')
+#6 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->delete('7')
+#7 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#8 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#11 {main}
+CRITICAL - 2020-12-28 01:09:50 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '0 = 1
+WHERE `ID` = '5'' at line 1
+#0 D:\project\wartegnusantara\system\Database\MySQLi\Connection.php(331): mysqli->query('UPDATE `kategor...')
+#1 D:\project\wartegnusantara\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `kategor...')
+#2 D:\project\wartegnusantara\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `kategor...')
+#3 D:\project\wartegnusantara\system\Database\BaseBuilder.php(2456): CodeIgniter\Database\BaseConnection->query('UPDATE `kategor...', Array, false)
+#4 D:\project\wartegnusantara\app\Models\KategoriBahanMakananModel.php(29): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(74): App\Models\KategoriBahanMakananModel->del(Array, '5')
+#6 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->delete('5')
+#7 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#8 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#11 {main}
+CRITICAL - 2020-12-28 01:09:57 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '0 = 1
+WHERE `ID` = '9'' at line 1
+#0 D:\project\wartegnusantara\system\Database\MySQLi\Connection.php(331): mysqli->query('UPDATE `kategor...')
+#1 D:\project\wartegnusantara\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `kategor...')
+#2 D:\project\wartegnusantara\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `kategor...')
+#3 D:\project\wartegnusantara\system\Database\BaseBuilder.php(2456): CodeIgniter\Database\BaseConnection->query('UPDATE `kategor...', Array, false)
+#4 D:\project\wartegnusantara\app\Models\KategoriBahanMakananModel.php(29): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(74): App\Models\KategoriBahanMakananModel->del(Array, '9')
+#6 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->delete('9')
+#7 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#8 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#11 {main}
+CRITICAL - 2020-12-28 09:12:17 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '0 = 1
+WHERE `ID` = '5'' at line 1
+#0 D:\project\wartegnusantara\system\Database\MySQLi\Connection.php(331): mysqli->query('UPDATE `kategor...')
+#1 D:\project\wartegnusantara\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `kategor...')
+#2 D:\project\wartegnusantara\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `kategor...')
+#3 D:\project\wartegnusantara\system\Database\BaseBuilder.php(2456): CodeIgniter\Database\BaseConnection->query('UPDATE `kategor...', Array, false)
+#4 D:\project\wartegnusantara\app\Models\KategoriBahanMakananModel.php(29): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 D:\project\wartegnusantara\app\Controllers\KategoriBahanMakanan.php(74): App\Models\KategoriBahanMakananModel->del(Array, '5')
+#6 D:\project\wartegnusantara\system\CodeIgniter.php(918): App\Controllers\KategoriBahanMakanan->delete('5')
+#7 D:\project\wartegnusantara\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriBahanMakanan))
+#8 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#11 {main}
+CRITICAL - 2020-12-28 09:17:01 --> syntax error, unexpected '=', expecting ')'
+#0 D:\project\wartegnusantara\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('KategoriBahanMa...')
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('KategoriBahanMa...')
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}
+CRITICAL - 2020-12-28 09:17:03 --> syntax error, unexpected '=', expecting ')'
+#0 D:\project\wartegnusantara\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('KategoriBahanMa...')
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('KategoriBahanMa...')
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}
+CRITICAL - 2020-12-28 09:20:54 --> syntax error, unexpected '=', expecting ')'
+#0 D:\project\wartegnusantara\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('KategoriBahanMa...')
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('KategoriBahanMa...')
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}
+CRITICAL - 2020-12-28 09:20:55 --> syntax error, unexpected '=', expecting ')'
+#0 D:\project\wartegnusantara\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('KategoriBahanMa...')
+#1 D:\project\wartegnusantara\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('KategoriBahanMa...')
+#2 D:\project\wartegnusantara\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 D:\project\wartegnusantara\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\project\wartegnusantara\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 D:\project\wartegnusantara\system\Commands\Server\rewrite.php(34): require_once('D:\\project\\wart...')
+#6 {main}

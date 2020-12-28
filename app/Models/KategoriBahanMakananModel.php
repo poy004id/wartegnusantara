@@ -24,7 +24,7 @@ class KategoriBahanMakananModel extends Model
         return $this->db->table($this->table)->update($data, ['ID' => $id]);
     }
 
-      public function delete()
+      public function del($data, $id)
     {
          return $this->db->table($this->table)->update($data,['ID' => $id]);
     }
