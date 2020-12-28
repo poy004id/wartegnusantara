@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Edit Kategori Bahan Makanan</h1>
+          <h1 class="m-0 text-dark">Edit Category</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -19,7 +19,7 @@
   <div class="content">
     <div class="container-fluid">
       <div class="row">
-          <div class="col-md-6 ">
+          <div class="col-md-12">
             <form action="<?php echo base_url('KategoriBahanMakanan/update'); ?>" method="">
               <div class="card">
                 <div class="card-body">
@@ -36,19 +36,17 @@
                   </div>
                   <?php } ?>
 
-                  <input type="hidden" name="ID" value="<?php echo $category['ID']; ?>">
+                  <input type="text" name="ID" value="<?php echo $bahanmakanan['ID']; ?>">
                   <div class="form-group">
-                      <label for="">Name</label>
-                      <input type="text" value="<?php echo $category['NamaKategori']; ?>" class="form-control" name="NamaKategori" placeholder="Enter category name">
+                      <label for="">Nama Bahan</label>
+                      <input type="text" value="<?php echo $bahanmakanan['NamaBahanBaku']; ?>" class="form-control" name="NamaBahanBaku" placeholder="Enter category name">
                   </div>
                   <div class="form-group">
-                      <label for="">Status</label>
-                      <select name="isActive" id="" class="form-control">
-                          <option value="">Pilih Status</option>
-                          <option value="1" <?php echo $category['isActive'] == "Active" ? 'selected' : '' ?>>Active</option>
-                          <option value="0" <?php echo $category['isActive'] == "Inactive" ? 'selected' : '' ?>>Inactive</option>
-                      </select>
+                      <label for="">Kuantitas</label>
+                      <input type="text" value="<?php echo $bahanmakanan['Qty']; ?>" class="form-control" name="Qty" placeholder="Enter category name">
                   </div>
+
+
 
                 </div>
                 <div class="card-footer">

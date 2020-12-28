@@ -29,7 +29,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?php echo base_url('product'); ?>" class="nav-link">
+                    <a href="<?php echo base_url('bahanmakanan'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-cart-plus"></i>
                         <p>Manajement Product</p>
                     </a>

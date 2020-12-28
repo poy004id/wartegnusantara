@@ -5,11 +5,11 @@ use CodeIgniter\Controller;
 use Config\Email;
 use Config\Services;
 use App\Models\UserModel;
-use App\Models\KategoriBahanMakananModel;
+use App\Models\BahanMakananModel;
 
 
 
-class KategoriBahanMakanan extends BaseController
+class BahanMakanan extends BaseController
 {
   protected $session;
 	protected $config;
@@ -21,14 +21,12 @@ class KategoriBahanMakanan extends BaseController
 
 	public function index()
 	{
-    // 	$session->userData;
-		// // $userdata = ['name' => 'Warteg Nusantara'];
-    // echo view('_partials/header',$userData);
-    $model = new KategoriBahanMakananModel();
-    $data['categories'] = $model->getCategory();
+
+    $model = new BahanMakananModel();
+    $data['BahanMakanan'] = $model->getData();
     echo view('_partials/header', ['userData' => $this->session->userData]);
     echo view('_partials/sidebar');
-		echo view('kategoribahanmakanan/index',$data);
+		echo view('bahanmakanan/index',$data);
     echo view('_partials/footer');
 	}
 
@@ -36,7 +34,7 @@ class KategoriBahanMakanan extends BaseController
       {
         echo view('_partials/header', ['userData' => $this->session->userData]);
         echo view('_partials/sidebar');
-        echo view('KategoriBahanMakanan/create');
+        echo view('BahanMakanan/create');
        echo view('_partials/footer');
       }
 
@@ -81,13 +79,12 @@ class KategoriBahanMakanan extends BaseController
 
       public function edit($id)
           {
-              $model = new KategoriBahanMakananModel();
-              $data['category'] = $model->getCategory($id)->getRowArray();
-
-              echo view('_partials/header', ['userData' => $this->session->userData]);
-              echo view('_partials/sidebar');
-              echo view('KategoriBahanMakanan/edit', $data);
-             echo view('_partials/footer');
+              $model = new BahanMakananModel();
+              $data = array(
+                  'bahanmakanan'     => $model->getData($id),
+                  'getAll'           => $model->getData(),
+              );
+              echo view('BahanMakanan/edit', $data, );
           }
 
       public function update()
