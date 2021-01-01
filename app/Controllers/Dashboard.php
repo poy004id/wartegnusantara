@@ -9,7 +9,7 @@ class Dashboard extends BaseController
 {
 	public function __construct()
     {
-		$this->cek_login();
+		//$this->cek_login();
 		$this->dashboard_model = new Dashboard_model();
 		$session = \Config\Services::session();
 		}
@@ -21,11 +21,11 @@ class Dashboard extends BaseController
     // echo "<br/>";
     // print_r $cek_login();
     // exit;
-		if($this->cek_login() == FALSE){
-			session()->setFlashdata('error_login', 'Silahkan login terlebih dahulu untuk mengakses data');
+// 		if($this->cek_login() == FALSE){
+// 			session()->setFlashdata('error_login', 'Silahkan login terlebih dahulu untuk mengakses data');
 
-			return redirect()->to('/auth/login');
-		}
+// 			return redirect()->to('/auth/login');
+// 		}
 		 $data['userdata'] = session('username');
 
     // modul belum di buat, rap maklum ini juga hasil copy punya orang trus diseusuaikan dengan kebutuhan. tp aku buat dari awal
