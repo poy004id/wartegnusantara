@@ -38,7 +38,8 @@ class Auth extends BaseController
 
         $data = [
             'username' => $username,
-            'password' => $pass
+            'password' => $pass,
+		'logged_in' =>TRUE
         ];
 
         // echo "<pre>";
