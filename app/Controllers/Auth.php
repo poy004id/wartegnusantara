@@ -9,23 +9,12 @@ class Auth extends BaseController
     public function __construct()
     {
         helper(['form']);
-        $this->cek_login();
+//         $this->cek_login();
         $this->auth_model = new Auth_model();
-	}
-
-    public function index()
-    {
-        if($this->cek_login() == TRUE){
-			return redirect()->to('/dashboard');
-		}
-        echo view('auth/login');
-    }
+}
 
     public function login()
     {
-        if($this->cek_login() == TRUE){
-			return redirect()->to('/dashboard');
-		}
         echo view('auth/login');
     }
 
