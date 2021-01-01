@@ -7,7 +7,7 @@
 
 <footer class="main-footer">
     <div class="float-right d-none d-sm-inline">
-        Sistem Informasi Penjualan
+        Sistem Informasi Warteg Nusantara
     </div>
     <strong>Copyright © 2020 <a href="<?php echo base_url('/'); ?>">Warteg Nusantara</a>.</strong> All rights reserved.
 </footer>

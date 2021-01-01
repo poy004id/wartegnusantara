@@ -1,5 +1,5 @@
 /*! =======================================================
-                      VERSION  10.6.2              
+                      VERSION  10.6.1              
 ========================================================= */
 "use strict";
 
@@ -183,10 +183,11 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 							return $(this);
 						});
 
-						if (objects.length === 1) {
+						if (!objects || objects.length > 1) {
+							return objects;
+						} else {
 							return objects[0];
 						}
-						return objects;
 					}
 				};
 			}

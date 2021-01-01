@@ -24,7 +24,7 @@
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="far fa-user"></i>
-                <span class="text-capitalize"><?= $userData['name'] ?></span>
+                <span class="text-capitalize"><?= $userdata ?></span>
 
             </a>
             <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
@@ -34,7 +34,7 @@
                     Account
                 </a>
                   <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="<?php echo base_url('logout'); ?>" class="dropdown-item">
+                <a class="dropdown-item" href="<?php echo base_url('auth/logout'); ?>" class="dropdown-item">
                     Logout
                 </a>
             </div>

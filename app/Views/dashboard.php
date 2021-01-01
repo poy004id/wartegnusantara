@@ -1,6 +1,3 @@
-<?php echo view('_partials/header'); ?>
-<?php echo view('_partials/sidebar'); ?>
-
 <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid">
@@ -45,5 +42,3 @@
         </div>
     </div>
 </div>
-
-<?php echo view('_partials/footer'); ?>

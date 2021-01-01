@@ -23,21 +23,27 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?php echo base_url('kategoribahanmakanan'); ?>" class="nav-link">
+                    <a href="<?php echo base_url('kategori_bahan'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-tags"></i>
-                        <p>Manajement Category</p>
+                        <p>Manajement Kategori</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?php echo base_url('bahanmakanan'); ?>" class="nav-link">
+                    <a href="<?php echo base_url('bahan'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-cart-plus"></i>
-                        <p>Manajement Product</p>
+                        <p>Manajement Bahan </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?php echo base_url('transaction'); ?>" class="nav-link">
+                    <a href="<?php echo base_url('kategori_menu'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-dollar-sign"></i>
-                        <p>Manajement Transaction</p>
+                        <p>Kategori Menu</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo base_url('menu'); ?>" class="nav-link">
+                        <i class="nav-icon fas fa-dollar-sign"></i>
+                        <p>Menu Makanan</p>
                     </a>
                 </li>
                 <li class="nav-header">ACCOUNT</li>

@@ -33,15 +33,3 @@ $('#chat-pane-toggle').DirectChat('toggle')
 {: .table .table-bordered .bg-light}
 
 Example: `$('#chat-pane-toggle').DirectChat('toggle')`
-
-
-##### Events
-{: .mt-4}
-
-|---
-| Event Type | Description
-|-|-
-|toggled.lte.directchat | Triggered after a direct chat contacts pane is toggled.
-{: .table .table-bordered .bg-light}
-
-Example: `$('#toggle-button').on('toggled.lte.directchat', handleToggledEvent)`

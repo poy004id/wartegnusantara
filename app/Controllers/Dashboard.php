@@ -1,48 +1,48 @@
-<?php
-namespace App\Controllers;
+<?php namespace App\Controllers;
 
-use CodeIgniter\Controller;
-// use Config\Email;
-// use Config\Services;
-// use App\Models\UserModel;
-// use App\Models\LogsModel;
-/**
- * Class BaseController
- *
- * BaseController provides a convenient place for loading components
- * and performing functions that are needed by all your controllers.
- * Extend this class in any new controllers:
- *     class Home extends BaseController
- *
- * For security be sure to declare any new methods as protected or private.
- *
- * @package CodeIgniter
- */
+use App\Models\Dashboard_model;
+use App\Models\Auth_model;
 
 
-class Dashboard extends Controller
+
+class Dashboard extends BaseController
 {
+	public function __construct()
+    {
+		$this->cek_login();
+		$this->dashboard_model = new Dashboard_model();
+		$session = \Config\Services::session();
+		}
 
-  // public function __construct()
-  // {
-  //   // start session
-  //   $this->session = Services::session();
-  // }
+	public function index()
+	{
+    // echo "<pre>";
+    // print_r($pass);
+    // echo "<br/>";
+    // print_r $cek_login();
+    // exit;
+		if($this->cek_login() == FALSE){
+			session()->setFlashdata('error_login', 'Silahkan login terlebih dahulu untuk mengakses data');
 
-  public function index()
-  {
+			return redirect()->to('/auth/login');
+		}
+		 $data['userdata'] = session('username');
 
-    echo view('Dashboard');
-  }
+    // modul belum di buat, rap maklum ini juga hasil copy punya orang trus diseusuaikan dengan kebutuhan. tp aku buat dari awal
+		// $data['total_transaction']	= $this->dashboard_model->getCountTrx();
+		// $data['total_product']		= $this->dashboard_model->getCountProduct();
+		// $data['total_category']		= $this->dashboard_model->getCountCategory();
+		// $data['total_user']			= $this->dashboard_model->getCountUser();
+		// $data['latest_trx']			= $this->dashboard_model->getLatestTrx();
+    //
+		// $chart['grafik']			= $this->dashboard_model->getGrafik();
 
-  // public function login()
-  // {
-  //   if ($this->session->isLoggedIn) {
-  //     return redirect()->to('TestDasboard/index2');
-  //   }
-  //
-  //   return view('auth/auth/login');
-  // }
+		// echo view('dashboard', $data);
+		// echo view('_partials/footer', $chart);
+		echo view('_partials/header',$data);
+		echo view('_partials/sidebar',$data);
+    echo view('dashboard');
+		echo view('_partials/footer');
+    }
 
 }
-?>
