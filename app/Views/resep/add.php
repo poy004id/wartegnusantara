@@ -52,7 +52,7 @@
                   </div>
               </div>
                 <div class="card-footer">
-                    <a href="<?php echo base_url('menu'); ?>" class="btn btn-outline-info">Back</a>
+                    <a href="<?php echo base_url('resep'); ?>" class="btn btn-outline-info">Back</a>
                     <button type="submit" class="btn btn-primary float-right">Buat Resep</button>
                 </div>
               </div>
