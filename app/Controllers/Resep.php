@@ -25,11 +25,6 @@ class Resep extends BaseController
 	{
 		 $data['userdata'] = session('username');
 		 $model= new Resep_model();
-		 // $data['resep'] = $model->select('resep.id as id,id_menu, id_bahan,resep.jumlah as jumlah,nama_menu, nama_bahan')
-		 // 												->join('menu', 'resep.id_menu=menu.id')
-			// 											->join('bahan', 'resep.id_bahan=bahan.id')
-			// 											// ->groupBy('id_menu')
-		 // 												->findAll();
 		 $data['resep'] = $model->select('resep.id_menu as id,id_menu, id_bahan, resep.jumlah as jumlah,nama_menu')
 		 												->join('menu', 'resep.id_menu=menu.id')
 		  											// ->join('bahan', 'resep.id_bahan=bahan.id')
@@ -61,21 +56,7 @@ class Resep extends BaseController
 															->join('bahan', 'resep.id_bahan=bahan.id')
 															->where('id_menu',$id)
 			 												->findAll();
-			 // $data['resep'] = $model->select('resep.id as id,id_menu, id_bahan, resep.jumlah as jumlah,nama_menu')
-			 // 												->join('menu', 'resep.id_menu=menu.id')
-			 //  											// ->join('bahan', 'resep.id_bahan=bahan.id')
-			 //  											->groupBy('id_menu')
-			 // 												->findAll();
-
-			 // echo "<pre>";
-			 // foreach ($data['resep'] as $key => $row) {
-			 //   print_r($row);
-			 //   echo "<br/>";
-			 // }
-			 //
-			 // exit;
-
-			echo view('_partials/header',$data);
+		 	echo view('_partials/header',$data);
 			echo view('_partials/sidebar',$data);
 	    echo view('resep/detail',$data);
 			echo view('_partials/footer');
@@ -85,8 +66,9 @@ class Resep extends BaseController
 		{
 			$menu_model= new Menu_model();
 			$data['userdata'] = session('username');
-			$data['menu'] = $menu_model->select('menu.id as id , menu.nama_menu as nama_menu')
-														->join('resep','resep.id_menu = menu.id','left' )
+			$data['menu'] = $menu_model->select('*')
+														->join('resep','menu.id = resep.id_menu','left outer' )
+														->where('id_menu',NULL)
 														->find();
 			echo view('_partials/header',$data);
 			echo view('_partials/sidebar',$data);
@@ -98,41 +80,11 @@ class Resep extends BaseController
 		public function create()
 		{
 			$id=$this->request->getPost('id');
-			echo $id;
-			echo "123";
-			exit;
-			$menu_model= new Menu_model();
 			$bahan_model= new Bahan_model();
+			$data['id_menu'] = $id;
 			$data['userdata'] = session('username');
-
-			$data['menu'] = $menu_model->select('menu.id as id , menu.nama_menu as nama_menu')
-
-														->join('resep','resep.id_menu = menu.id','left' )
-
-														->find();
-											// echo "<pre>";
-											// foreach ($data['menu'] as $key => $row) {
-											// print_r($row);
-											//  echo "<br/>";
-											// }
-											//  exit;
-
-
-
-
 			$data['bahan'] = $bahan_model->select('id ,nama_bahan')
-			//->where('resep.id_menu'<>'menu.id')
-														//->join('resep','resep.id_menu = menu.id','left outer' )
-
-														->findAll();
-
-														// echo "<pre>";
-											// foreach ($data['menu'] as $key => $row) {
-											// print_r($row);
-											//  echo "<br/>";
-											// }
-											//  exit;
-
+																		->find();
 			echo view('_partials/header',$data);
 			echo view('_partials/sidebar',$data);
 			echo view('resep/create',$data);
@@ -142,47 +94,31 @@ class Resep extends BaseController
 
 		public function store()
 		{
-			// echo "<pre>";
-      //       print_r($_POST);
-			// exit;
-
 			$model= new Resep_model();
-			// $validation =  \Config\Services::validation();
-
-
 			$arr_id_bahan	= $this->request->getPost('id_bahan');
 			$arr_jumlah		= $this->request->getPost('jumlah');
+			$arr_id_menu	= $this->request->getPost('id_menu');
 
 			$i=-1;
 			foreach($arr_id_bahan as $id_bahan):
-			$i++;
+					$i++;
 			    $data[] = array(
 			                        'id_bahan' => $id_bahan,
+															'id_menu' => $arr_id_menu[$i],
 			                        'jumlah'  => $arr_jumlah[$i]
 			                   );
 			endforeach;
-
-			echo "<pre>";
-            print_r($data);
-			exit;
-			// foreach ($data['id_bahan'] as $key => $row) {
-			// 	echo $row;
-			// 	echo "<br/>";
-			// }
-			// exit;
-
-			// $this->db->insert_batch('my_table',$data);
-			// $model->insert_batch($data);
+			$model->insertBatch($data);
 
 
-			$data = [
-						'id' => $this->request->getPost('id'),
-						'nama_menu' => $this->request->getPost('nama_menu'),
-						'jumlah' => $this->request->getPost('jumlah'),
-						'harga' => $this->request->getPost('harga'),
-						'keterangan' => $this->request->getPost('keterangan'),
-						'id_kategori_menu' => $this->request->getPost('id_kategori_menu'),
-				];
+			// $data = [
+			// 			'id' => $this->request->getPost('id'),
+			// 			'nama_menu' => $this->request->getPost('nama_menu'),
+			// 			'jumlah' => $this->request->getPost('jumlah'),
+			// 			'harga' => $this->request->getPost('harga'),
+			// 			'keterangan' => $this->request->getPost('keterangan'),
+			// 			'id_kategori_menu' => $this->request->getPost('id_kategori_menu'),
+			// 	];
 			//cek validasi
 			// if($validation->run($data, 'menu') == FALSE){
 			// 		session()->setFlashdata('inputs', $this->request->getPost());
@@ -190,7 +126,7 @@ class Resep extends BaseController
 			// 		return redirect()->to(base_url('menu/create'));
 			// 	}
 				//preses insert ke db
-			$model->insert($data);
+			// $model->insert($data);
 			session()->setFlashdata('success', 'Menu berhasil ditambahakn');
 			return redirect()->to('/resep');
 		}

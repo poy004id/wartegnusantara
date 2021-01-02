@@ -38,8 +38,8 @@
                     <div id="dynamic_field">
   <!-- ############################################################# Form input###################################################################################### -->
                       <div class="form-group row">
-
-                        <div class="col-md-7">
+                        <input type="hidden" class="form-control" id="id_menu" name="id_menu[]" placeholder="" value= "<?php echo $id_menu?> ">
+                        <div class="col-md-6">
                           <label for="bahan">Bahan</label>
                           <select name="id_bahan[]" id="id_bahan" class="form-control">
                               <option value="">Pilih Kategori</option>
@@ -85,7 +85,7 @@
 
      $('#add').click(function(){
           i++;
-          $('#dynamic_field').append('<div id="row'+i+'"><div class="form-group row"><div class="col-md-7"><label for="bahan">Kategori</label><select name="id_bahan[]" id="id_bahan" class="form-control"><option value="">Pilih Kategori</option><?php foreach ($bahan as $key => $row): ?><option value="<?php echo $row['id']?>"><?php echo $row['nama_bahan']?></option><?php endforeach; ?></select></div><div class="col-md-4"><label for="jumlah">Jumlah</label><input type="text" class="form-control" id="jumlah" name="jumlah[]" placeholder="Takaran" value=""></div><div class="col-md-1"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></div></div></div>');
+          $('#dynamic_field').append('<div id="row'+i+'"><div class="form-group row"><input type="hidden" class="form-control" id="id_menu" name="id_menu[]" placeholder="" value= "<?php echo $id_menu;?> "><div class="col-md-6"><label for="bahan">Kategori</label><select name="id_bahan[]" id="id_bahan" class="form-control"><option value="">Pilih Kategori</option><?php foreach ($bahan as $key => $row): ?><option value="<?php echo $row['id']?>"><?php echo $row['nama_bahan']?></option><?php endforeach; ?></select></div><div class="col-md-4"><label for="jumlah">Jumlah</label><input type="text" class="form-control" id="jumlah" name="jumlah[]" placeholder="Takaran" value=""></div><div class="col-md-1"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></div></div></div>');
     });
 
 
