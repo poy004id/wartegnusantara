@@ -10,7 +10,7 @@
                       <div class="card">
                           <div class="card-header">
                               Daftar Resep Makanan
-                              <a href="<?php echo base_url('resep/create'); ?>" class="btn btn-primary float-right">Tambah</a>
+                              <a href="<?php echo base_url('resep/add'); ?>" class="btn btn-primary float-right">Tambah</a>
                           </div>
                           <div class="card-body">
 

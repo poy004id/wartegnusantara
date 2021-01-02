@@ -56,7 +56,7 @@
                                               <td><?php echo $row['nama_menu']; ?></td>
                                               <td><?php echo $row['jumlah']; ?></td>
                                               <td><?php echo $row['harga']; ?></td>
-                                              <td><?php echo $row['total_harga']; ?></td>
+                                              <td><?php echo $row['jumlah'] * $row['harga']; ?></td>
 
 
                                               <td>

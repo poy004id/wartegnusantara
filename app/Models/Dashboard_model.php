@@ -42,9 +42,9 @@ class Dashboard_model extends Model
 
     public function getLatestTrx()
     {
-        return $this->table('transactions')
-            ->select('products.product_name, transactions.*')
-            ->join('products', 'products.product_id = transactions.product_id')
+        return $this->table('detail_transaksi')
+            ->select('products.product_name, transaksi.*')
+            ->join('menu', 'menu.id_menu = transaksi.product_id')
             ->orderBy('transactions.trx_id', 'desc')
             ->limit(5)
             ->get()
