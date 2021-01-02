@@ -40,15 +40,15 @@
                       <select name="id" id="id" class="form-control">
                           <option value="">Pilih Menu Makanan</option>
                           <?php foreach ($menu as $key => $row): ?>
-                            <option value="<?php echo $row['id']?>"><?php echo $row['nama_menu']?></option>
+                            <option value="<?php echo $row['menuid']?>"><?php echo $row['nama_menu']?></option>
                           <?php endforeach; ?>
                       </select>
                     </div>
-                    <div class="col-md-4">
+                    <!-- <div class="col-md-4">
 
                       <label for="">Jumlah</label>
                       <input type="text" class="form-control" name="jumlah" placeholder=" Jumlah name" value="">
-                    </div>
+                    </div> -->
                   </div>
               </div>
                 <div class="card-footer">

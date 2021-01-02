@@ -66,7 +66,7 @@ class Resep extends BaseController
 		{
 			$menu_model= new Menu_model();
 			$data['userdata'] = session('username');
-			$data['menu'] = $menu_model->select('*')
+			$data['menu'] = $menu_model->select('*, menu.id as menuid')
 														->join('resep','menu.id = resep.id_menu','left outer' )
 														->where('id_menu',NULL)
 														->find();
@@ -79,9 +79,10 @@ class Resep extends BaseController
 
 		public function create()
 		{
+
 			$id=$this->request->getPost('id');
 			$bahan_model= new Bahan_model();
-			$data['id_menu'] = $id;
+			$data['id'] = $id;
 			$data['userdata'] = session('username');
 			$data['bahan'] = $bahan_model->select('id ,nama_bahan')
 																		->find();
@@ -94,17 +95,20 @@ class Resep extends BaseController
 
 		public function store()
 		{
+			// echo "<pre>";
+      //       print_r($_POST);
+			// exit;
 			$model= new Resep_model();
 			$arr_id_bahan	= $this->request->getPost('id_bahan');
 			$arr_jumlah		= $this->request->getPost('jumlah');
-			$arr_id_menu	= $this->request->getPost('id_menu');
+			$arr_id	= $this->request->getPost('id');
 
 			$i=-1;
 			foreach($arr_id_bahan as $id_bahan):
 					$i++;
 			    $data[] = array(
 			                        'id_bahan' => $id_bahan,
-															'id_menu' => $arr_id_menu[$i],
+															'id_menu' => $arr_id[$i],
 			                        'jumlah'  => $arr_jumlah[$i]
 			                   );
 			endforeach;
