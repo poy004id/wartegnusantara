@@ -9,12 +9,9 @@
                   <div class="col-md-12">
                       <div class="card">
                           <div class="card-header">
-
-
-
+                          <h5 >
                               Resep Makanan : <b> <?php echo $menuData['nama_menu'];?>
-
-                              </b>
+                              </b></h5>
 
 
                           </div>
@@ -47,7 +44,7 @@
                                               <th>Nama Bahan </th>
                                               <th>Kuantitas </th>
                                               <th>Satuan </th>
-                                              <th>Action</th>
+
                                           </tr>
                                       </thead>
                                       <tbody>
@@ -57,29 +54,31 @@
                                               <td><?php echo $row['nama_bahan']; ?></td>
                                               <td><?php echo $row['jumlah']; ?></td>
                                               <td><?php echo $row['satuan']; ?></td>
-                                              <td>
-                                                  <div class="btn-group">
-                                                    <a href="<?php echo base_url('menu/detail/'.$row['id']); ?>" class="btn btn-sm btn-primary">
-                                                        <i class="fas fa-list-alt"></i> Detail
-                                                    </a>
-                                                  </div><div class="btn-group"> &nbsp;</div>
-                                                  <div class="btn-group">
-                                                    <a href="<?php echo base_url('menu/edit/'.$row['id']); ?>" class="btn btn-sm btn-success">
-                                                        <i class="fa fa-edit"></i>
-                                                    </a>
-                                                    <a href="<?php echo base_url('menu/delete/'.$row['id']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?');">
-                                                        <i class="fa fa-trash-alt"></i>
-                                                    </a>
-                                                  </div>
-                                              </td>
+
                                           </tr>
                                         <?php } ?>
                                          <!-- end foreach -->
                                       </tbody>
                                   </table>
+
                               </div>
 
                           </div>
+                          <div class="card-footer">
+                            <div class="btn-group float-left">
+                              <a href="<?php echo base_url('resep'); ?>" class="btn  btn-outline-info">
+                                  <i class="fa fa-arrow-left "> Back </i>
+                              </a>
+                            </div>
+                          <div class="btn-group float-right">
+                            <a href="<?php echo base_url('resep/edit/'.$menuData['id']); ?>" class="btn  btn-success">
+                                <i class="fa fa-edit"> Edit </i>
+                            </a>
+                            <a href="<?php echo base_url('resep/delete/'.$menuData['id']); ?>" class="btn  btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?');">
+                                <i class="fa fa-trash-alt"> Delete</i>
+                            </a>
+                          </div>
+                        </div>
                       </div>
                   </div>
               </div>

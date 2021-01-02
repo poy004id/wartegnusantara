@@ -49,15 +49,15 @@
                                               <td><?php echo $row['nama_menu']; ?></td>
                                               <td>
                                                   <div class="btn-group">
-                                                    <a href="<?php echo base_url('resep/detail/'.$row['id']); ?>" class="btn btn-sm btn-primary">
+                                                    <a href="<?php echo base_url('resep/detail/'.$row['id']); ?>" class="btn btn-sm btn-outline-info">
                                                         <i class="fas fa-list-alt"></i> Detail
                                                     </a>
                                                   </div><div class="btn-group"> &nbsp;</div>
                                                   <div class="btn-group">
-                                                    <a href="<?php echo base_url('resep/edit/'.$row['id']); ?>" class="btn btn-sm btn-success">
+                                                    <a href="<?php echo base_url('resep/edit/'.$row['id']); ?>" class="btn  btn-success">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="<?php echo base_url('resep/delete/'.$row['id']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?');">
+                                                    <a href="<?php echo base_url('resep/delete/'.$row['id']); ?>" class="btn  btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?');">
                                                         <i class="fa fa-trash-alt"></i>
                                                     </a>
                                                   </div>
