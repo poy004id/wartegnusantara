@@ -17,7 +17,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="<?php echo base_url('/'); ?>" class="nav-link">
+                    <a href="<?php echo base_url('/dashboard'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Dashboard</p>
                     </a>
@@ -51,6 +51,12 @@
                     <a href="<?php echo base_url('transaksi'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-dollar-sign"></i>
                         <p>Transaksi Penjualan </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo base_url('resep'); ?>" class="nav-link">
+                        <i class="nav-icon fas fa-dollar-sign"></i>
+                        <p>Resep  </p>
                     </a>
                 </li>
                 <li class="nav-header">ACCOUNT</li>
