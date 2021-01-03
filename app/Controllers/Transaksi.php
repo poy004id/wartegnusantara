@@ -20,7 +20,7 @@ class Transaksi extends BaseController
 	public function index(){
 		$data['userdata'] = session('username');
 		$this->builder->select('transaksi.id as transaksi_id, tanggal,total_harga, id_user');
-		$query=$this->builder->get(); 
+		$query=$this->builder->get();
 		$data['item'] = $query->getResult();
 		echo view('_partials/header',$data);
 		echo view('_partials/sidebar',$data);
@@ -38,8 +38,8 @@ class Transaksi extends BaseController
 		$data['menu'] = $menumodel->findAll();
 		$data['transaksi'] = $transaksidetailmodel->findAll();
 		$data['id']=$transaksimodel->get_nofak();
-		
-  		echo view('_partials/header',$data);
+
+  	echo view('_partials/header',$data);
 		echo view('_partials/sidebar',$data);
 		echo view('transaksi/create',$data);
 		echo view('_partials/footer');
@@ -81,13 +81,13 @@ class Transaksi extends BaseController
   		$nofak= $this->request->getPost('nofak');
 		// $jml_uang=str_replace(",", "", $this->request->getPost('jml_uang'));
 		// $kembalian=$jml_uang-$total;
-		
-		
+
+
 		$order_proses=$transaksimodel->simpan_penjualan($nofak,$total,$tanggal, $kasir);
 		$cart->destroy();
-			
-		return redirect()->to(base_url('transaksi'));	
-		
+
+		return redirect()->to(base_url('transaksi'));
+
   	}
   	public function detail($transaksi_id){
   		$data['userdata'] = session('username');
@@ -95,7 +95,7 @@ class Transaksi extends BaseController
 		$this->builder->join('detail_transaksi','detail_transaksi.id_transaksi=transaksi.id');
 		$this->builder->join('menu','menu.id=detail_transaksi.id_menu');
 		$this->builder->where('transaksi.id',$transaksi_id);
-		$query=$this->builder->get(); 
+		$query=$this->builder->get();
 		$data['item'] = $query->getResult();
 		echo view('_partials/header',$data);
 		echo view('_partials/sidebar',$data);
