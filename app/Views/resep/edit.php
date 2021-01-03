@@ -3,7 +3,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Tambah menu Makanan</h1>
+            <h1 class="m-0 text-dark">Update menu Makanan : </h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -19,7 +19,7 @@
       <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-              <form action="<?php echo base_url('resep/store'); ?>" method="post">
+              <form action="<?php echo base_url('resep/update'); ?>" method="post">
                 <div class="card">
                   <div class="card-body padding-bottom80">
                     <?php
@@ -37,24 +37,32 @@
                     <?php } ?>
                     <div id="dynamic_field">
   <!-- ############################################################# Form input###################################################################################### -->
+<?php foreach ($resep as $key => $row): ?>
                       <div class="form-group row">
-                        <input type="hidden" class="form-control" id="id" name="id[]" placeholder="" value= "<?php echo $id?> ">
+
                         <div class="col-md-6">
                           <label for="bahan">Bahan</label>
                           <select name="id_bahan[]" id="id_bahan" class="form-control">
                               <option value="">Pilih Bahan</option>
-                              <?php foreach ($bahan as $key => $row): ?>
-                                <option value="<?php echo $row['id']?>"><?php echo $row['nama_bahan']?></option>
+                              <?php foreach ($bahan as $key => $value): ?>
+                                <?php if($row['id_bahan'] == $value['id']):?>
+                                <option value="<?php echo $value['id']?>" selected><?php echo $value['nama_bahan']?></option>
+                                <?php else:?>
+                                <option value="<?php echo $value['id']?>"><?php echo $value['nama_bahan']?></option>
+                              <?php endif; ?>
                               <?php endforeach; ?>
                           </select>
                         </div>
 
                         <div class="col-md-4">
                           <label for="jumlah">Jumlah</label>
-                          <input type="text" class="form-control" id="jumlah" name="jumlah[]" placeholder="Takaran" value="">
+                          <input type="text" class="form-control" id="jumlah" name="jumlah[]" placeholder="Takaran" value="<?php echo $row['jumlah']; ?>">
                         </div>
 
                       </div>
+<?php endforeach; ?>
+<!-- ############################################################# Form input###################################################################################### -->
+
 
                     <div class="form-group row button-group">
                       <div class="col-sm-offset-2" col-md-1>
@@ -64,7 +72,6 @@
                        <input type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" />
                      </div>
                   </div>
-                  <!-- ############################################################# Form input###################################################################################### -->
                 </div>
               </div>
             </div>
@@ -85,7 +92,7 @@
 
      $('#add').click(function(){
           i++;
-          $('#dynamic_field').append('<div id="row'+i+'"><div class="form-group row"><input type="hidden" class="form-control" id="id" name="id[]" placeholder="" value= "<?php echo $id;?> "><div class="col-md-6"><label for="bahan">Bahan '+i+'</label><select name="id_bahan[]" id="id_bahan" class="form-control"><option value="">Pilih Bahan</option><?php foreach ($bahan as $key => $row): ?><option value="<?php echo $row['id']?>"><?php echo $row['nama_bahan']?></option><?php endforeach; ?></select></div><div class="col-md-4"><label for="jumlah">Jumlah</label><input type="text" class="form-control" id="jumlah" name="jumlah[]" placeholder="Takaran" value=""></div><div class="col-md-1"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></div></div></div>');
+          $('#dynamic_field').append('<div id="row'+i+'"><div class="form-group row"><div class="col-md-6"><label for="bahan">Kategori</label><select name="id_bahan[]" id="id_bahan" class="form-control"><option value="">Pilih Kategori</option><?php foreach ($bahan as $key => $row): ?><option value="<?php echo $row['id']?>"><?php echo $row['nama_bahan']?></option><?php endforeach; ?></select></div><div class="col-md-4"><label for="jumlah">Jumlah</label><input type="text" class="form-control" id="jumlah" name="jumlah[]" placeholder="Takaran" value=""></div><div class="col-md-1"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></div></div></div>');
     });
 
 

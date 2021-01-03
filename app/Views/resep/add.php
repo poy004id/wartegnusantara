@@ -36,7 +36,7 @@
                   <?php } ?>
                   <div class="form-group row">
                     <div class="col-md-8">
-                      <label for="">Kategori</label>
+                      <label for="">Menu Makanan</label>
                       <select name="id" id="id" class="form-control">
                           <option value="">Pilih Menu Makanan</option>
                           <?php foreach ($menu as $key => $row): ?>

@@ -50,7 +50,7 @@ class Resep extends BaseController
 
 																	 ->find($id);
 
-
+			
 			 $data['resep'] = $model->select('resep.id_menu as id,id_bahan,resep.jumlah as jumlah,nama_menu, nama_bahan, resep.satuan as satuan')
 			 												->join('menu', 'resep.id_menu=menu.id')
 															->join('bahan', 'resep.id_bahan=bahan.id')
@@ -137,19 +137,26 @@ class Resep extends BaseController
 
 		public function edit($id=FALSE)
 				{
-					$model = new Menu_model();
-					$kategori_model = new Kategori_Menu_model();
+					$data['userdata'] = session('username');
+					$resep_model= new Resep_model();
+					$bahan_model = new Bahan_model();
 
 					$data = array(
-							'menu' => $model->find($id),
-							'kategoriData' => $kategori_model->findAll(),
+							'resep' => $resep_model->where('id_menu',$id)->find( ),
+							'bahan' => $bahan_model->findAll(),
+							'userdata' => session('username')
 					);
-					$data['userdata'] = session('username');
+					// echo "<pre>";
+					// foreach ($data['resep'] as $key => $row) {
+					// print_r($row);
+					//  echo "<br/>";
+					// }
+					//  exit;
 
 						echo view('_partials/header', $data);
-						echo view('_partials/sidebar');
-						echo view('menu/edit', $data);
-					 echo view('_partials/footer');
+						//echo view('_partials/sidebar');
+						echo view('resep/edit', $data);
+					 	echo view('_partials/footer');
 				}
 
 		public function update()
