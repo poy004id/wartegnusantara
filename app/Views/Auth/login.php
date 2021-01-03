@@ -11,11 +11,11 @@
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
-      <a href="<?php echo base_url('auth/login'); ?>"><b>SIP</b>Online</a>
+      <a href="<?php echo base_url('auth/login'); ?>">Warteg <b> Nusantara</b></a>
     </div>
     <div class="card">
       <div class="card-body login-card-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">Silakan Login terlebih dahulu</p>
         <?php $errors = session()->getFlashdata('errors');
         if(!empty($errors)){ ?>
           <div class="alert alert-danger" role="alert">
