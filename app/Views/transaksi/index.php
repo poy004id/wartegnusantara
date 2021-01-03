@@ -1,12 +1,9 @@
 <div class="content-wrapper">
   <div class="content-header">
-
-
-
   <div class="content">
           <div class="container-fluid">
               <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-10">
                       <div class="card">
                           <div class="card-header">
                               List transaksi Makanan
@@ -39,33 +36,27 @@
                                           <tr>
                                               <th>No</th>
                                               <th>ID Transaksi</th>
-                                              <th>Menu </th>
-                                              <th>Jumlah </th>
-                                              <th>harga </th>
+                                              <th>Tanggal </th>
                                               <th>Total_harga </th>
-
+                                              <th>Kasir </th>
 
                                               <th>Action</th>
                                           </tr>
                                       </thead>
                                       <tbody>
-                                          <?php foreach($transaksi as $key => $row){ ?>
+                                          <?php foreach($item as $key => $row){ ?>
                                           <tr>
                                               <td><?php echo $key +1; ?></td>
-                                              <td><?php echo $row['id']; ?></td>
-                                              <td><?php echo $row['nama_menu']; ?></td>
-                                              <td><?php echo $row['jumlah']; ?></td>
-                                              <td><?php echo $row['harga']; ?></td>
-                                              <td><?php echo $row['jumlah'] * $row['harga']; ?></td>
+                                              <td><?php echo $row->transaksi_id; ?></td>
+                                              <td><?php echo $row->tanggal; ?></td>
+                                              <td><?php echo $row->total_harga; ?></td>
+                                              <td><?php echo $row->id_user; ?></td>
 
 
                                               <td>
                                                   <div class="btn-group">
-                                                      <a href="<?php echo base_url('transaksi/edit/'.$row['id']); ?>" class="btn btn-sm btn-success">
-                                                          <i class="fa fa-edit"></i>
-                                                      </a>
-                                                      <a href="<?php echo base_url('transaksi/delete/'.$row['id']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?');">
-                                                          <i class="fa fa-trash-alt"></i>
+                                                      <a href="<?php echo base_url('transaksi/detail/'.$row->transaksi_id); ?>" class="btn btn-sm btn-success" title="Detail Transaksi">
+                                                          <i class="fa fa-eye"></i>
                                                       </a>
                                                   </div>
                                               </td>
