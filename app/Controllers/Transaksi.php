@@ -75,7 +75,7 @@ class Transaksi extends BaseController
   	public function simpan(){
   		$cart = \Config\Services::cart();
   		$transaksimodel= new Transaksi_model();
-  		$tanggal= $this->request->getPost('tanggal');
+  		$tanggal= date('Y-m-d H:i:s');
   		$kasir= $this->request->getPost('kasir');
   		$total= $this->request->getPost('total');
   		$nofak= $this->request->getPost('nofak');

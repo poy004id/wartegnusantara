@@ -3,7 +3,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Update menu Makanan : </h1>
+            <h1 class="m-0 text-dark">Update Resep Makanan : </h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -58,6 +58,7 @@
                           <label for="jumlah">Jumlah</label>
                           <input type="text" class="form-control" id="jumlah" name="jumlah[]" placeholder="Takaran" value="<?php echo $row['jumlah']; ?>">
                         </div>
+                        <div class="col-md-1"><button type="button" name="remove" id="" class="btn btn-danger btn_remove">X</button></div>
 
                       </div>
 <?php endforeach; ?>
@@ -66,7 +67,7 @@
 
                     <div class="form-group row button-group">
                       <div class="col-sm-offset-2" col-md-1>
-                        <button type="button" name="add" id="add" class="btn btn-success">Add Row</button>
+                        <button type="button" name="add" id="add" class="btn btn-outline-success">Add Row</button>
                       </div>
                       <div class="col-sm-offset-2 col-md-1">
                        <input type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" />

@@ -20,7 +20,7 @@
       <center><?php echo session()->setFlashdata('msg');?></center>
       <div class="row">
           <div class="col-md-4">
-            
+
             <form action="<?php echo base_url('transaksi/add_cart')?>" method="post">
               <div class="card">
                 <div class="card-body">
@@ -28,7 +28,7 @@
                       <label for="">Menu Makanan</label>
                       <select name="id_menu" id="id_menu" class="form-control">
                           <option value="">Pilih Menu</option>
-                          <?php foreach ($menu as $key => $row): 
+                          <?php foreach ($menu as $key => $row):
                             ?>
 
                             <option value="<?php echo $row['id']?>"><?php echo $row['nama_menu']?></option>
@@ -50,7 +50,7 @@
             </form>
           </div>
           <form action="<?= base_url('transaksi/simpan')?>" method="post">
-            
+
             <div class="col-md-12">
               <div class="row">
                 <div class="col-md-6">
@@ -71,7 +71,7 @@
                     </div>
                   </div>
                 </div>
-                
+
               </div>
               <div class="row">
                 <div class="col-md-12">
@@ -93,18 +93,18 @@
                       <?php foreach ($cart->contents() as $items): ?>
                       <?php echo form_hidden($i.'[rowid]', $items['rowid']); ?>
                       <tr>
-                           <td><?=$items['id'];?></td>
+                           <td><?=$i ?></td>
                            <td><?=$items['name'];?></td>
                            <td style="text-align:right;"><?php echo number_format($items['price']);?></td>
                            <td style="text-align:center;"><?php echo number_format($items['qty']);?></td>
                            <td style="text-align:right;"><?php echo number_format($items['subtotal']);?></td>
-                          
+
                            <td style="text-align:center;"><a href="<?php echo base_url('transaksi/remove/'.$items['rowid']);?>" class="btn btn-warning btn-xs"><span class="fa fa-close"></span> Batal</a></td>
                       </tr>
-                      
+
                       <?php $i++; ?>
                       <?php endforeach; ?>
-                          
+
                         </tbody>
                       </table>
                       <table>
@@ -132,7 +132,7 @@
               </div>
             </div>
           </form>
-          
+
       </div>
     </div>
   </div>
@@ -146,7 +146,7 @@ $(function(){
         $('#jml_uang2').val(hsl);
         $('#kembalian').val(hsl-total);
     })
-    
+
 });
 </script>
 <script type="text/javascript">

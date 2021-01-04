@@ -59,6 +59,18 @@
                         <p>Resep  </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="<?php echo base_url('laporan_transaksi'); ?>" class="nav-link">
+                        <i class="nav-icon fas fa-dollar-sign"></i>
+                        <p>Laporan Transaksi  </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo base_url('laporan_stok'); ?>" class="nav-link">
+                        <i class="nav-icon fas fa-dollar-sign"></i>
+                        <p>Laporan Stok  </p>
+                    </a>
+                </li>
                 <li class="nav-header">ACCOUNT</li>
                 <li class="nav-item">
                     <a href="<?php echo base_url('logout'); ?>" class="nav-link">

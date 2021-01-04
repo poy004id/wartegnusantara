@@ -47,6 +47,6 @@ class Transaksi_model extends Model
 		}
 		return true;
 	}
-    
+
 
 }
