@@ -47,6 +47,37 @@ class Transaksi_model extends Model
 		}
 		return true;
 	}
-
-
+    public function view_by_date($tgl){
+        $db      = \Config\Database::connect();
+        $builder = $db->table('transaksi');
+        $builder->where('DATE(tanggal)',$tgl);
+        $query = $builder->get();
+        return $query->getResultArray();
+      }
+        
+      public function view_by_month($bulan, $tahun){
+        $db      = \Config\Database::connect();
+        $builder = $db->table('transaksi');
+        $builder->where('MONTH(tanggal)',$bulan);
+        $builder->where('YEAR(tanggal)',$tahun);
+        $query = $builder->get();
+        return $query->getResultArray();
+      }
+        
+      public function view_by_year($tahun){
+        $db      = \Config\Database::connect();
+        $builder = $db->table('transaksi');
+        $builder->where('YEAR(tanggal)',$tahun);
+        $query = $builder->get();
+        return $query->getResultArray();
+      }
+   
+      public function option_tahun(){
+        $this->builder->select('YEAR(tanggal) AS tahun'); // Ambil Tahun dari field tgl
+         // select ke tabel transaksi
+        $this->builder->orderBy('YEAR(tanggal)'); // Urutkan berdasarkan tahun secara Ascending (ASC)
+        $this->builder->groupBy('YEAR(tanggal)'); // Group berdasarkan tahun pada field tgl
+        
+        $this->builder->get(); // Ambil data pada tabel transaksi sesuai kondisi diatas
+        }
 }
