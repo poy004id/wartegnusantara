@@ -35,7 +35,7 @@ class Kategori_Bahan extends BaseController
 		{
 			$data['userdata'] = session('username');
 			$data['inputs'] = session('inputs');
-			print_r($data['inputs']);exit;
+			//print_r($data['inputs']);exit;
 			echo view('_partials/header',$data);
 			echo view('_partials/sidebar',$data);
 			echo view('kategori_bahan/create');
