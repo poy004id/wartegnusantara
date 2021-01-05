@@ -22,6 +22,7 @@ class Kategori_Menu extends BaseController
 	public function index()
 	{
 		 $data['userdata'] = session('username');
+		 $data['inputs'] = session('inputs');
 		 $model= new Kategori_Menu_model();
 		 $data['kategori'] = $model	->where('status', 'active')
 		 														->findAll();

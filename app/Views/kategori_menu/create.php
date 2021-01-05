@@ -38,7 +38,7 @@
                    <input type="hidden" id="id" name="id" value="">
                   <div class="form-group">
                       <label for="">Nama Kategori</label>
-                      <input type="text" class="form-control" name="nama_kategori" placeholder="Nama Kategori" value="">
+                      <input type="text" class="form-control" name="nama_kategori" placeholder="Nama Kategori" value="<?php echo $inputs['nama_kategori'] ?>">
                   </div>
 
                   <div class="form-group">
