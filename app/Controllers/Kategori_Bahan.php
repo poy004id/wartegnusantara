@@ -69,6 +69,7 @@ class Kategori_Bahan extends BaseController
 				{
 						$model= new Kategori_Bahan_model();
 						$data['userdata'] = session('username');
+						$data['inputs'] = session('inputs');
 						$data['kategori'] = $model	->where('id', $id)
 																				->find();
 						echo view('_partials/header', $data);
