@@ -44,7 +44,7 @@
 
                      <input type="hidden" id="id" name="id" value="<?php echo $user['id']; ?>">
                      <input type="hidden" id="id" name="no_hp" value="<?php echo $user['no_hp']; ?>">
-                     <input type="hidden" id="id" name="hidden_password" value= "<?php echo $user['password']; ?> ">
+                     
 
                     <div class="form-group">
                         <label for="">Username</label>
