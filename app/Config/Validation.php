@@ -46,6 +46,35 @@ class Validation
  		]
 	];
 
+	public $user = [
+	 'username'         => 'required',
+	 'password' 		=> 'required',
+	 'nama'	=>'required',
+	 'status'	=>'required',
+	 'level'	=>'required'
+	 ];
+
+	 public $user_errors = [
+	 'username'=> [
+		 'required' 	=> 'username wajib diisi.'
+	 ],
+	 'nama'=> [
+		 'required' 	=> 'nama wajib diisi.'
+	 ],
+	 'status'=> [
+		 'required' 	=> 'status wajib diisi.'
+	 ],
+	 'level'=> [
+		 'required' 	=> 'level wajib diisi.'
+	 ],
+	 'password'=> [
+		 'required' 	=> 'Password wajib diisi.'
+	 ]
+ ];
+
+
+
+
 	public $kategori_bahan = [
 			'nama_kategori'     => 'required',
 			'status'     => 'required'
