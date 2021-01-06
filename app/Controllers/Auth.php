@@ -28,7 +28,7 @@ class Auth extends BaseController
         $data = [
             'username' => $username,
             'password' => $pass,
-		'logged_in' =>TRUE
+		         'logged_in' =>TRUE
         ];
 
         // echo "<pre>";
@@ -137,6 +137,104 @@ class Auth extends BaseController
     //     }
     //
     // }
+    public function user(){
+      $data['userdata'] = session('username');
+      $model= new Auth_model();
+      $data['user'] = $model->findAll();
+
+      echo view('_partials/header',$data);
+      echo view('_partials/sidebar',$data);
+      echo view('auth/user',$data);
+      echo view('_partials/footer');
+    }
+    public function create(){
+      $data['userdata'] = session('username');
+      echo view('_partials/header',$data);
+      echo view('_partials/sidebar',$data);
+      echo view('Auth/create');
+      echo view('_partials/footer');
+    }
+
+    public function store()
+		{
+			$model= new Auth_model();
+			$validation =  \Config\Services::validation();
+
+			$data = [
+						'id' => $this->request->getPost('id'),
+						'username' => $this->request->getPost('username'),
+            'nama' => $this->request->getPost('nama'),
+
+            'password' => $this->request->getPost('password'),
+            'level' => $this->request->getPost('level'),
+						'status' => $this->request->getPost('status'),
+            'role' => $this->request->getPost('role'),
+            'no_hp' => $this->request->getPost('no_hp'),
+				];
+
+
+
+			if($validation->run($data, 'user') == FALSE){
+					session()->setFlashdata('inputs', $this->request->getPost());
+					session()->setFlashdata('errors', $validation->getErrors());
+					return redirect()->to(base_url('auth/create'));
+				}
+      $data['password']=password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
+			$model->insert($data);
+      session()->setFlashdata('success', 'User berhasil ditambahkan');
+			return redirect()->to('/auth/user');
+		}
+
+    public function edit($id=FALSE){
+      $data['userdata'] = session('username');
+      $model= new Auth_model();
+      $data['user'] = $model->find($id);
+
+
+      echo view('_partials/header',$data);
+      echo view('_partials/sidebar',$data);
+      echo view('auth/edit',$data);
+      echo view('_partials/footer');
+    }
+
+    public function update()
+		{
+			$model= new Auth_model();
+			$validation =  \Config\Services::validation();
+			$data = [
+						'id' => $this->request->getPost('id'),
+						'username' => $this->request->getPost('username'),
+            'nama' => $this->request->getPost('nama'),
+            'password' => $this->request->getPost('password'),
+            'level' => $this->request->getPost('level'),
+						'status' => $this->request->getPost('status'),
+            'level' => $this->request->getPost('level'),
+            'no_hp' => $this->request->getPost('no_hp'),
+				];
+
+        //if inputan password tidak diisi, pasword adalah password awal yg di ambil dari sql
+        if ($data['password'] ==null){
+          $user= $model->find($data['id']);
+          $data['password']=$user['password'];
+        }
+        //jika inputan passwod diisi, password di enkripsi
+        else {
+        $data['password']=password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
+        }
+
+
+        //validation, jika gagal kembali ke menu edit dengan memdawa data $data
+			if($validation->run($data, 'user') == FALSE){
+          session()->setFlashdata('inputs',$data );
+					session()->setFlashdata('errors', $validation->getErrors());
+					return redirect()->to(base_url('auth/edit'));
+				}
+
+
+			$model->update($data['id'],$data);
+      session()->setFlashdata('success', 'User berhasil di update');
+			return redirect()->to('/auth/user');
+		}
 
     public function logout()
     {
