@@ -4,6 +4,7 @@ use CodeIgniter\Model;
 class Auth_model extends Model
 {
     protected $table = "user";
+      protected $allowedFields = ['id', 'nama', 'username','no_hp','password', 'status','level'];
 
     public function cek_login($username)
     {
@@ -17,25 +18,11 @@ class Auth_model extends Model
                     ->limit(1)
                     ->get()
                     ->getRowArray();
-        // echo "<pre>";
-        // print_r($username);
-        // foreach ($hasil as $key => $value) {
-        //   print_r($value );
-        //   print_r("<br/>");
-        // }
-        //
-        //
-        // exit;
-
         } else {
             $hasil = array();
         }
         return $hasil;
     }
 
-    // public function register($data)
-    // {
-    //     return $this->db->table($this->table)->insert($data);
-    // }
 }
 ?>
