@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2021 at 12:06 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.2.15
+-- Generation Time: Jan 08, 2021 at 12:44 PM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `wn2`
 --
+CREATE DATABASE IF NOT EXISTS `wn2` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `wn2`;
 
 -- --------------------------------------------------------
 
@@ -41,22 +43,22 @@ CREATE TABLE `bahan` (
 --
 
 INSERT INTO `bahan` (`id`, `nama_bahan`, `jumlah`, `satuan`, `id_kategori_bahan`) VALUES
-(1, 'Beras', 4556, 'kg', 1),
+(1, 'Berass', 120, 'kg', 1),
 (2, 'Gula', 40, 'kg', 2),
 (3, 'Garam', 500, 'gram', 2),
 (5, 'Kangkung', 18, 'ikat', 5),
 (7, 'Bawang merah', 20, 'kg', 2),
 (8, 'Teh', 100, 'pack', 7),
-(9, 'Telur', 30, 'kg', 17),
+(9, 'Telur', 30, 'kg', 14),
 (10, 'Bawang Putih', 20, 'kg', 2),
 (11, 'Tempe', 200, 'pack', 5),
 (12, 'Tahu', 200, 'pack', 5),
-(13, 'Ayam', 40, 'kg', 17),
+(13, 'Ayam', 40, 'kg', 14),
 (14, 'Tauge', 20, 'kg', 5),
 (15, 'Wortel', 20, 'kg', 5),
-(16, 'Ikan Tongkol', 5, 'kg', 17),
-(17, 'Telur asin', 200, 'butir', 17),
-(18, 'Cabai merah', 20, 'kg', 2),
+(16, 'Ikan Tongkol', 5, 'kg', 14),
+(17, 'Telur asin', 200, 'butir', 14),
+(18, 'Cabai', 20, 'kg', 2),
 (19, 'Es batu', 200, 'pack', 7),
 (20, 'Nutrisari', 200, 'sachet', 7),
 (21, 'White Coffe', 200, 'sachet', 7),
@@ -76,7 +78,8 @@ INSERT INTO `bahan` (`id`, `nama_bahan`, `jumlah`, `satuan`, `id_kategori_bahan`
 (35, 'Santan', 10, 'liter', 5),
 (36, 'Kulit melinjo', 10, 'kg', 5),
 (37, 'Jagung manis', 10, 'kg', 5),
-(38, 'Air', 800, 'liter', 7);
+(38, 'Air', 800, 'liter', 7),
+(39, 'Tepung kentucky', 40, 'kg', 2);
 
 -- --------------------------------------------------------
 
@@ -101,22 +104,22 @@ INSERT INTO `detail_transaksi` (`id`, `id_transaksi`, `id_menu`, `jumlah`, `harg
 (2, 301210002, 1, 20, 3000),
 (3, 301210003, 2, 10, 3000),
 (4, 701210001, 1, 1, 3000),
-(5, 701210001, 5, 1, 500),
-(6, 701210001, 13, 1, 4000),
-(7, 701210001, 21, 1, 1000),
-(8, 701210002, 1, 1, 3000),
-(9, 701210002, 5, 1, 500),
-(10, 701210002, 17, 1, 500),
-(11, 701210002, 6, 1, 5000),
-(12, 701210003, 6, 1, 5000),
-(13, 701210003, 22, 2, 3000),
-(14, 701210003, 1, 3, 3000),
-(15, 701210003, 2, 1, 3000),
-(16, 701210003, 16, 4, 500),
-(17, 701210003, 21, 4, 1000),
-(18, 701210004, 1, 6, 3000),
-(19, 701210004, 12, 6, 6000),
-(20, 701210004, 17, 2, 500),
+(5, 301210004, 1, 1, 3000),
+(6, 301210004, 6, 2, 5000),
+(7, 301210004, 5, 1, 500),
+(8, 301210005, 1, 1, 3000),
+(9, 301210005, 6, 1, 5000),
+(10, 301210005, 3, 1, 8000),
+(11, 401210001, 1, 1, 3000),
+(12, 401210001, 1, 6, 3000),
+(13, 401210001, 1, 1, 3000),
+(14, 401210001, 1, 2, 3000),
+(15, 401210001, 5, 3, 500),
+(16, 401210002, 6, 1, 5000),
+(17, 401210002, 5, 1, 500),
+(18, 401210002, 1, 2, 3000),
+(19, 601210001, 1, 6, 3000),
+(20, 601210002, 3, 22, 8000),
 (21, 701210005, 2, 4, 3000),
 (22, 701210005, 8, 4, 3000),
 (23, 701210006, 1, 4, 3000),
@@ -142,7 +145,12 @@ INSERT INTO `detail_transaksi` (`id`, `id_transaksi`, `id_menu`, `jumlah`, `harg
 (43, 701210016, 15, 2, 4000),
 (44, 701210016, 1, 2, 3000),
 (45, 701210017, 2, 6, 3000),
-(46, 701210017, 14, 6, 6000);
+(46, 701210017, 14, 6, 6000),
+(47, 801210001, 1, 500, 3000),
+(48, 801210002, 1, 1, 3000),
+(49, 801210003, 1, 1500, 3000),
+(50, 801210004, 1, 1, 3000),
+(51, 801210005, 1, 1, 3000);
 
 -- --------------------------------------------------------
 
@@ -180,8 +188,7 @@ INSERT INTO `kategori_bahan` (`id`, `nama_kategori`, `status`) VALUES
 (7, 'Minuman', 'active'),
 (14, 'Lain lain', 'active'),
 (15, 'Sambal ', 'inactive'),
-(16, 'Sambal', 'active'),
-(17, 'Lauk-pauk', 'active');
+(16, 'kerupuk4545', 'inactive');
 
 -- --------------------------------------------------------
 
@@ -200,13 +207,14 @@ CREATE TABLE `kategori_menu` (
 --
 
 INSERT INTO `kategori_menu` (`id`, `nama_kategori`, `status`) VALUES
-(1, 'Makanan Utama', 'active'),
+(1, 'Menu Utama', 'active'),
 (3, 'Lauk Pauk', 'active'),
 (4, 'Sayur Mayur', 'active'),
 (5, 'Sambal', 'active'),
 (6, 'Gorengan', 'active'),
 (7, 'Minuman', 'active'),
-(8, 'Lain-lain', 'active');
+(8, 'Lain-lain', 'inactive'),
+(9, 'Lain lain', 'active');
 
 -- --------------------------------------------------------
 
@@ -229,10 +237,9 @@ CREATE TABLE `menu` (
 
 INSERT INTO `menu` (`id`, `nama_menu`, `jumlah`, `keterangan`, `harga`, `id_kategori_menu`) VALUES
 (1, 'Nasi putih', -4, 'cuma nasi biasa aja bukan nasi kaya', 3000, 1),
-(2, 'Nasi uduk', 4, 'rasanya gurih', 3000, 1),
-(3, 'Ayam goreng sambal ijo', 28, 'pedas level dewa', 8000, 3),
-(5, 'Orek Tempe', 18, 'murrahahah', 500, 3),
-(6, 'Semur Jengkol', 73, 'dijamin nagih', 5000, 4),
+(2, 'Nasi uduk', 20, 'rasanya gurih', 3000, 1),
+(5, 'Orek Tempe', 5, 'murrahahah', 500, 3),
+(6, 'Semur Jengkol', 84, 'dijamin nagih', 5000, 4),
 (8, 'Ikan tongkol masak balado', 187, 'rasa mantab', 3000, 3),
 (9, 'Oseng Tauge', 30, 'maknyuss', 500, 4),
 (10, 'Oseng kangkung', 20, 'mantab', 500, 4),
@@ -241,15 +248,15 @@ INSERT INTO `menu` (`id`, `nama_menu`, `jumlah`, `keterangan`, `harga`, `id_kate
 (13, 'Telur dadar', 19, 'uenaak', 4000, 3),
 (14, 'Ikan bandeng goreng telur', 11, 'enak', 6000, 3),
 (15, 'Telur balado', 18, 'Pedas', 4000, 3),
-(16, 'Sayur lodeh', 17, 'enak', 500, 4),
-(17, 'Sayur asem', 17, 'makinyus', 500, 4),
+(16, 'Sayur lodehedit', 170, 'enak sekali ', 5000, 4),
 (20, 'Tahu bacem', 10, 'makinyus', 500, 3),
 (21, 'Tempe bacem', 9, 'rasanya mantab', 1000, 3),
-(22, 'Es teh', -6, '', 3000, 7),
-(23, 'Teh panas', -1, '', 3000, 7),
-(24, 'Nutrisari', -1, '', 4000, 7),
+(22, 'Es teh', 60, '', 3000, 7),
+(23, 'Teh panas', 134, '', 3000, 7),
+(24, 'Nutrisari', 24, '', 4000, 7),
 (25, 'Coffe gooday', 1, '', 5000, 7),
-(26, 'Kopi gilus', 94, '', 3000, 7);
+(26, 'Kopi gilus', 94, '', 3000, 7),
+(27, 'Tempe  goreng mentega', 1000, '', 2000, 3);
 
 -- --------------------------------------------------------
 
@@ -261,21 +268,45 @@ CREATE TABLE `resep` (
   `id_resep` int(10) NOT NULL,
   `id_menu` int(10) NOT NULL,
   `id_bahan` int(10) NOT NULL,
-  `jumlah` int(4) NOT NULL
+  `jumlah` int(4) NOT NULL,
+  `satuan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `resep`
 --
 
-INSERT INTO `resep` (`id_resep`, `id_menu`, `id_bahan`, `jumlah`) VALUES
-(1, 13, 9, 50),
-(2, 13, 7, 20),
-(3, 13, 10, 13),
-(4, 13, 18, 80),
-(5, 13, 3, 5),
-(6, 22, 2, 20),
-(7, 22, 14, 5);
+INSERT INTO `resep` (`id_resep`, `id_menu`, `id_bahan`, `jumlah`, `satuan`) VALUES
+(1, 1, 1, 1, 0),
+(2, 1, 3, 1, 0),
+(3, 6, 7, 8, 0),
+(4, 6, 7, 86, 0),
+(5, 6, 1, 9, 0),
+(6, 22, 2, 20, 0),
+(7, 22, 14, 5, 0),
+(9, 5, 11, 5, 0),
+(10, 5, 10, 3, 0),
+(11, 5, 7, 5, 0),
+(12, 5, 3, 2, 0),
+(13, 24, 20, 1, 0),
+(14, 24, 38, 25, 0),
+(15, 24, 19, 0, 0),
+(16, 25, 25, 1, 0),
+(17, 25, 38, 30, 0),
+(18, 12, 13, 50, 0),
+(28, 16, 10, 10, 0),
+(29, 16, 7, 20, 0),
+(30, 16, 32, 2, 0),
+(31, 16, 12, 10, 0),
+(32, 16, 35, 2, 0),
+(33, 23, 8, 3, 0),
+(34, 23, 38, 5, 0),
+(35, 23, 2, 2, 0),
+(36, 21, 11, 3, 0),
+(37, 21, 2, 2, 0),
+(38, 21, 3, 6, 0),
+(39, 26, 26, 1, 0),
+(40, 26, 38, 250, 0);
 
 -- --------------------------------------------------------
 
@@ -285,7 +316,7 @@ INSERT INTO `resep` (`id_resep`, `id_menu`, `id_bahan`, `jumlah`) VALUES
 
 CREATE TABLE `transaksi` (
   `id` varchar(20) NOT NULL,
-  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `tanggal` timestamp NOT NULL DEFAULT current_timestamp(),
   `total_harga` int(10) NOT NULL,
   `id_user` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -295,26 +326,37 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id`, `tanggal`, `total_harga`, `id_user`) VALUES
-('0301210001', '2021-01-02 17:00:00', 90000, 'admin'),
-('0301210002', '2021-01-02 17:00:00', 30000, 'admin'),
+('0301210001', '2020-12-30 17:00:00', 90000, 'admin'),
+('0301210002', '2021-01-02 17:00:00', 60000, 'admin'),
 ('0301210003', '2021-01-02 17:00:00', 30000, 'admin'),
-('0701210001', '2021-01-06 21:33:02', 8500, 'admin'),
-('0701210002', '2021-01-06 21:36:26', 9000, 'admin'),
-('0701210003', '2021-01-06 21:41:34', 29000, 'admin'),
-('0701210004', '2021-01-06 21:42:08', 55000, 'admin'),
-('0701210005', '2021-01-06 21:42:38', 24000, 'admin'),
-('0701210006', '2021-01-06 21:43:39', 24000, 'admin'),
-('0701210007', '2021-01-06 21:44:49', 32500, 'admin'),
-('0701210008', '2021-01-06 21:45:45', 24000, 'admin'),
-('0701210009', '2021-01-06 21:46:26', 18000, 'admin'),
-('0701210010', '2021-01-06 21:47:22', 27000, 'admin'),
-('0701210011', '2021-01-06 21:48:17', 13600, 'admin'),
-('0701210012', '2021-01-06 21:48:46', 15000, 'admin'),
-('0701210013', '2021-01-06 21:49:36', 4000, 'admin'),
-('0701210014', '2021-01-06 21:50:01', 50000, 'admin'),
-('0701210015', '2021-01-06 21:50:41', 9000, 'admin'),
-('0701210016', '2021-01-06 21:51:12', 14000, 'admin'),
-('0701210017', '2021-01-06 21:52:02', 54000, 'admin');
+('0301210004', '2021-01-02 17:00:00', 13500, 'admin'),
+('0301210005', '2021-01-02 17:00:00', 16000, 'admin'),
+('0401210001', '2021-01-03 17:00:00', 31500, 'admin'),
+('0401210002', '2021-01-03 18:35:01', 11500, 'admin'),
+('0601210001', '2021-01-05 22:54:17', 18000, 'admin'),
+('0601210002', '2021-01-05 22:55:10', 176000, 'admin'),
+('0701210001', '2021-01-06 14:33:02', 8500, 'admin'),
+('0701210002', '2021-01-06 14:36:26', 9000, 'admin'),
+('0701210003', '2021-01-06 14:41:34', 29000, 'admin'),
+('0701210004', '2021-01-06 14:42:08', 55000, 'admin'),
+('0701210005', '2021-01-06 14:42:38', 24000, 'admin'),
+('0701210006', '2021-01-06 14:43:39', 24000, 'admin'),
+('0701210007', '2021-01-06 14:44:49', 32500, 'admin'),
+('0701210008', '2021-01-06 14:45:45', 24000, 'admin'),
+('0701210009', '2021-01-06 14:46:26', 18000, 'admin'),
+('0701210010', '2021-01-06 14:47:22', 27000, 'admin'),
+('0701210011', '2021-01-06 14:48:17', 13600, 'admin'),
+('0701210012', '2021-01-06 14:48:46', 15000, 'admin'),
+('0701210013', '2021-01-06 14:49:36', 4000, 'admin'),
+('0701210014', '2021-01-06 14:50:01', 50000, 'admin'),
+('0701210015', '2021-01-06 14:50:41', 9000, 'admin'),
+('0701210016', '2021-01-06 14:51:12', 14000, 'admin'),
+('0701210017', '2021-01-06 14:52:02', 54000, 'admin'),
+('0801210001', '2021-01-07 21:57:59', 1500000, 'Eko'),
+('0801210002', '2021-01-07 21:58:30', 3000, 'Eko'),
+('0801210003', '2021-01-07 22:00:35', 4500000, 'Eko'),
+('0801210004', '2021-01-07 22:01:41', 3000, 'admin'),
+('0801210005', '2021-01-07 22:14:42', 3000, 'admin');
 
 -- --------------------------------------------------------
 
@@ -323,11 +365,11 @@ INSERT INTO `transaksi` (`id`, `tanggal`, `total_harga`, `id_user`) VALUES
 --
 
 CREATE TABLE `user` (
-  `id_user` int(10) NOT NULL,
+  `id` int(10) NOT NULL,
   `username` varchar(15) NOT NULL,
   `password` varchar(100) NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `No_hp` varchar(255) NOT NULL,
+  `no_hp` varchar(255) NOT NULL,
   `status` enum('active','inactive') NOT NULL DEFAULT 'active',
   `level` enum('admin','kasir','koki') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -336,8 +378,12 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `No_hp`, `status`, `level`) VALUES
-(2, 'admin', '$2y$10$O4cuuAOVOAtOq2rxMfErrua7FFSHlKOJDLYqhDFntaEtVTm/5LB9W', 'admin', '1234', 'active', 'admin');
+INSERT INTO `user` (`id`, `username`, `password`, `nama`, `no_hp`, `status`, `level`) VALUES
+(2, 'admin', '$2y$10$O4cuuAOVOAtOq2rxMfErrua7FFSHlKOJDLYqhDFntaEtVTm/5LB9W', 'admin', '1234', 'active', 'admin'),
+(3, 'Eko', '$2y$10$QyrMeQZQmDsXwtP5vkhU5.hsuQFscsdoocgK8JjK7SgDP7JlUFyUy', 'Eko Setyawan', '', 'active', 'kasir'),
+(8, 'Bambang ', '$2y$10$kq3avJxwTFtvnF3yM.qGWOrk9dr39T6NRntB.R6V2hG5WeGceOlN.', 'Bambang Pamungkas', '', 'active', 'koki'),
+(9, 'Kasir', '$2y$10$NHttm6K6vCKYnsMC2QJuzOFgXiwjr3Wl2YUTGeK/pz1M9ZY10ymKW', 'Kasir3', '', 'active', 'kasir'),
+(10, 'koki', '$2y$10$RYGBN5uUhGPo.m8BYM.MLuHweznsfTuya2U9GuBrHwOrp4sqD75TG', 'koki', '', 'active', 'koki');
 
 --
 -- Indexes for dumped tables
@@ -396,7 +442,7 @@ ALTER TABLE `transaksi`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
@@ -407,43 +453,43 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `bahan`
 --
 ALTER TABLE `bahan`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `kategori_bahan`
 --
 ALTER TABLE `kategori_bahan`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `kategori_menu`
 --
 ALTER TABLE `kategori_menu`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `resep`
 --
 ALTER TABLE `resep`
-  MODIFY `id_resep` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_resep` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
@@ -459,7 +505,7 @@ ALTER TABLE `bahan`
 -- Constraints for table `menu`
 --
 ALTER TABLE `menu`
-  ADD CONSTRAINT `FKmenu181546` FOREIGN KEY (`id_kategori_menu`) REFERENCES `kategori_menu` (`id`);
+  ADD CONSTRAINT `FKmenu181546` FOREIGN KEY (`id_kategori_menu`) REFERENCES `kategori_menu` (`id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `resep`
