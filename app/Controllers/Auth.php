@@ -55,15 +55,15 @@ class Auth extends BaseController
                     //
 
 
-                    // $userdata = [
-                    // 'username'  => $cek_login['username'],
-                    // 'email'     => $cek_login['nama'],
-                    // 'level'     => $cek_login['level'],
-                    // 'status'    =>$cek_login['status']
-                    // ];
-                    //
-                    // $session->set_userdata($userdata);
+                    $userdata = [
+                    'username'  => $cek_login['username'],
+                    'nama'     => $cek_login['nama'],
+                    'level'     => $cek_login['level'],
+                    'status'    =>$cek_login['status']
+                    ];
 
+                    // $session->set_userdata($userdata);
+                    session()->set('userdata', $userdata);
                     session()->set('username', $cek_login['username']);
                     session()->set('name', $cek_login['nama']);
                     session()->set('level', $cek_login['level']);
@@ -138,7 +138,7 @@ class Auth extends BaseController
     //
     // }
     public function user(){
-      $data['userdata'] = session('username');
+      $data['userdata'] = session('userdata');
       $model= new Auth_model();
       $data['user'] = $model->findAll();
 
@@ -148,7 +148,7 @@ class Auth extends BaseController
       echo view('_partials/footer');
     }
     public function create(){
-      $data['userdata'] = session('username');
+      $data['userdata'] = session('userdata');
       echo view('_partials/header',$data);
       echo view('_partials/sidebar',$data);
       echo view('Auth/create');
@@ -186,7 +186,7 @@ class Auth extends BaseController
 		}
 
     public function edit($id=FALSE){
-      $data['userdata'] = session('username');
+      $data['userdata'] = session('userdata');
       $model= new Auth_model();
       $data['user'] = $model->find($id);
 

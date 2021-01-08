@@ -21,7 +21,7 @@ class Kategori_Bahan extends BaseController
 
 	public function index()
 	{
-		 $data['userdata'] = session('username');
+		 $data['userdata'] = session('userdata');
 		 $model= new Kategori_Bahan_model();
 		 $data['kategori'] = $model	->where('status', 'active')
 		 														->findAll();
@@ -33,7 +33,7 @@ class Kategori_Bahan extends BaseController
 
 		public function create()
 		{
-			$data['userdata'] = session('username');
+			$data['userdata'] = session('userdata');
 			$data['inputs'] = session('inputs');
 			//print_r($data['inputs']);exit;
 			echo view('_partials/header',$data);
@@ -68,7 +68,7 @@ class Kategori_Bahan extends BaseController
 		public function edit($id)
 				{
 						$model= new Kategori_Bahan_model();
-						$data['userdata'] = session('username');
+						$data['userdata'] = session('userdata');
 						$data['inputs'] = session('inputs');
 						$data['kategori'] = $model	->where('id', $id)
 																				->find();

@@ -22,7 +22,7 @@ class Bahan extends BaseController
 
 	public function index()
 	{
-		 $data['userdata'] = session('username');
+		 $data['userdata'] = session('userdata');
 		 $model= new Bahan_model();
 		 $data['bahan'] = $model->select('bahan.id as id, nama_bahan,jumlah,satuan,id_kategori_bahan,nama_kategori')
 		 												->join('kategori_bahan', 'bahan.id_kategori_bahan=kategori_bahan.id','left outer')
@@ -37,7 +37,7 @@ class Bahan extends BaseController
 		public function create()
 		{
 			$model= new Kategori_Bahan_model();
-			$data['userdata'] = session('username');
+			$data['userdata'] = session('userdata');
 			$data['bahan'] = $model
 														 ->findAll();
 			echo view('_partials/header',$data);
@@ -80,7 +80,7 @@ class Bahan extends BaseController
 							'bahan' => $model->find($id),
 							'kategoriData' => $kategori_model->findAll(),
 					);
-					$data['userdata'] = session('username');
+					$data['userdata'] = session('userdata');
 
 						echo view('_partials/header', $data);
 						echo view('_partials/sidebar');

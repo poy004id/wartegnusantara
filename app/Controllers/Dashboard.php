@@ -10,15 +10,14 @@ class Dashboard extends BaseController
 {
 	public function __construct()
     {
-		//$this->cek_login();
 		$this->dashboard_model = new Dashboard_model();
-		$session = \Config\Services::session();
 		}
 
 	public function index()
 	{
 
-		 $data['userdata'] = session('username');
+		 $data['userdata'] = session('userdata');
+
 		 // $model= new Resep_model();
 		 $detail_transaksi_model= new Detail_Transaksi_model();
     // modul belum di buat, rap maklum ini juga hasil copy punya orang trus diseusuaikan dengan kebutuhan. tp aku buat dari awal
@@ -33,12 +32,9 @@ class Dashboard extends BaseController
 															->limit(5)
 															->find();
 
-					
+
 	    //
 		// $chart['grafik']			= $this->dashboard_model->getGrafik();
-
-		// echo view('dashboard', $data);
-		// echo view('_partials/footer', $chart);
 		echo view('_partials/header',$data);
 		echo view('_partials/sidebar',$data);
     echo view('dashboard');

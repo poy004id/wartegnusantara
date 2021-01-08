@@ -21,7 +21,7 @@ class Kategori_Menu extends BaseController
 
 	public function index()
 	{
-		 $data['userdata'] = session('username');
+		 $data['userdata'] = session('userdata');
 		 $data['inputs'] = session('inputs');
 		 $model= new Kategori_Menu_model();
 		 $data['kategori'] = $model	->where('status', 'active')
@@ -34,7 +34,7 @@ class Kategori_Menu extends BaseController
 
 		public function create()
 		{
-			$data['userdata'] = session('username');
+			$data['userdata'] = session('userdata');
 			echo view('_partials/header',$data);
 			echo view('_partials/sidebar',$data);
 			echo view('kategori_menu/create');
@@ -67,7 +67,7 @@ class Kategori_Menu extends BaseController
 		public function edit($id)
 				{
 						$model= new Kategori_Menu_model();
-						$data['userdata'] = session('username');
+						$data['userdata'] = session('userdata');
 						$data['kategori'] = $model	->where('id', $id)
 																				->find();
 						echo view('_partials/header', $data);

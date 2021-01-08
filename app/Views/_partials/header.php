@@ -26,7 +26,7 @@
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="far fa-user"></i>
-                <span class="text-capitalize"><?= $userdata ?></span>
+                <span class="text-capitalize"><?= $userdata['username'] ?></span>
 
             </a>
             <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">

@@ -32,6 +32,8 @@ class BaseController extends Controller
 	 * Constructor.
 	 */
 
+	 
+
 	 public function cek_login()
  	{
  		$result = true;
@@ -40,6 +42,7 @@ class BaseController extends Controller
  		}
  		return $result;
  	}
+
 
 
 	public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)

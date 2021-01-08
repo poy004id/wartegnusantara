@@ -18,7 +18,7 @@ class Transaksi extends BaseController
 	}
 
 	public function index(){
-		$data['userdata'] = session('username');
+		$data['userdata'] = session('userdata');
 		$this->builder->select('transaksi.id as transaksi_id, tanggal,total_harga, id_user');
 		$query=$this->builder->get();
 		$data['item'] = $query->getResult();
@@ -33,7 +33,7 @@ class Transaksi extends BaseController
 		$transaksidetailmodel= new Detail_Transaksi_model();
 		$transaksimodel= new Transaksi_model();
   		$menumodel= new Menu_model();
-		$data['userdata'] = session('username');
+		$data['userdata'] = session('userdata');
 		$data['cart'] = \Config\Services::cart();
 		$data['menu'] = $menumodel->findAll();
 		$data['transaksi'] = $transaksidetailmodel->findAll();
@@ -90,7 +90,7 @@ class Transaksi extends BaseController
 
   	}
   	public function detail($transaksi_id){
-  		$data['userdata'] = session('username');
+  		$data['userdata'] = session('userdata');
 		$this->builder->select('transaksi.id as transaksi_id, tanggal, transaksi.id_user as kasir, total_harga, id_menu, nama_menu, detail_transaksi.harga as price, detail_transaksi.jumlah as qty');
 		$this->builder->join('detail_transaksi','detail_transaksi.id_transaksi=transaksi.id');
 		$this->builder->join('menu','menu.id=detail_transaksi.id_menu');

@@ -22,7 +22,7 @@ class Menu extends BaseController
 
 	public function index()
 	{
-		 $data['userdata'] = session('username');
+		 $data['userdata'] = session('userdata');
 		 $model= new Menu_model();
 		 $data['menu'] = $model->select('menu.id as id, nama_menu,jumlah,keterangan,harga,id_kategori_menu,nama_kategori')
 		 												->join('kategori_menu', 'menu.id_kategori_menu=kategori_menu.id')
@@ -37,7 +37,7 @@ class Menu extends BaseController
 		public function create()
 		{
 			$model= new Kategori_Menu_model();
-			$data['userdata'] = session('username');
+			$data['userdata'] = session('userdata');
 			$data['menu'] = $model->findAll();
 			echo view('_partials/header',$data);
 			echo view('_partials/sidebar',$data);
@@ -80,7 +80,7 @@ class Menu extends BaseController
 							'menu' => $model->find($id),
 							'kategoriData' => $kategori_model->findAll(),
 					);
-					$data['userdata'] = session('username');
+					$data['userdata'] = session('userdata');
 
 						echo view('_partials/header', $data);
 						echo view('_partials/sidebar');

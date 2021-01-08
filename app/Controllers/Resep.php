@@ -23,7 +23,7 @@ class Resep extends BaseController
 
 	public function index()
 	{
-		 $data['userdata'] = session('username');
+		 $data['userdata'] = session('userdata');
 		 $model= new Resep_model();
 		 $data['resep'] = $model->select('resep.id_menu as id,id_menu, id_bahan, resep.jumlah as jumlah,nama_menu')
 		 												->join('menu', 'resep.id_menu=menu.id')
@@ -41,7 +41,7 @@ class Resep extends BaseController
 		public function detail($id)
 		{
 
-			 $data['userdata'] = session('username');
+			 $data['userdata'] = session('userdata');
 			 $model= new Resep_model();
 			 $menumodel= new Menu_model();
 
@@ -50,7 +50,7 @@ class Resep extends BaseController
 
 																	 ->find($id);
 
-			
+
 			 $data['resep'] = $model->select('resep.id_menu as id,id_bahan,resep.jumlah as jumlah,nama_menu, nama_bahan, resep.satuan as satuan')
 			 												->join('menu', 'resep.id_menu=menu.id')
 															->join('bahan', 'resep.id_bahan=bahan.id')
@@ -65,7 +65,7 @@ class Resep extends BaseController
 		public function add()
 		{
 			$menu_model= new Menu_model();
-			$data['userdata'] = session('username');
+			$data['userdata'] = session('userdata');
 			$data['menu'] = $menu_model->select('*, menu.id as menuid')
 														->join('resep','menu.id = resep.id_menu','left outer' )
 														->where('id_menu',NULL)
@@ -83,7 +83,7 @@ class Resep extends BaseController
 			$id=$this->request->getPost('id');
 			$bahan_model= new Bahan_model();
 			$data['id'] = $id;
-			$data['userdata'] = session('username');
+			$data['userdata'] = session('userdata');
 			$data['bahan'] = $bahan_model->select('id ,nama_bahan')
 																		->find();
 			echo view('_partials/header',$data);
@@ -137,7 +137,7 @@ class Resep extends BaseController
 
 		public function edit($id=FALSE)
 				{
-					$data['userdata'] = session('username');
+					$data['userdata'] = session('userdata');
 					$resep_model= new Resep_model();
 					$bahan_model = new Bahan_model();
 

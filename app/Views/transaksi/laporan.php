@@ -59,10 +59,10 @@
                         </div>
 
                         <button type="submit">Tampilkan</button>
-                        <a href="<?php echo base_url('laporan_transaksi'); ?>">Reset Filter</a>  
-    
+                        <a href="<?php echo base_url('laporan_transaksi'); ?>">Reset Filter</a>
+
                    </form>
-                  </div> 
+                  </div>
                   <div class="col-md-8">
                       <b><?php echo $ket; ?></b><br /><br />
                       <a href="<?php echo $url_cetak; ?>" target="_blank">CETAK PDF</a><br /><br />
@@ -78,7 +78,7 @@
                         $no = 1;
                         foreach($transaksi as $key => $data){
                               $tgl = date('d-m-Y', strtotime($data['tanggal']));
-                              
+
                           echo "<tr>";
                           echo "<td>".$no++."</td>";
                           echo "<td>".$tgl."</td>";
@@ -90,8 +90,8 @@
                       }
                       ?>
                   </table>
-                  </div> 
-                </div>    
+                  </div>
+                </div>
             	</div>
             </div>
           </div>
