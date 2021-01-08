@@ -5,6 +5,8 @@
 #1. composer require dompdf/dompdf 
 #print pdf blm jalan
 
+Setelah cloning, jalankan composer update
+
 Setting database :
 1. Create database = wn2
 2. import database.sql
