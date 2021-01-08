@@ -23,6 +23,7 @@ class Laporan_Transaksi2 extends BaseController
                 $ket = 'Data Transaksi Tanggal '.date('Y-m-d', strtotime($tgl));
                 $url_cetak = 'Laporan_Transaksi/cetak?filter=1&tanggal='.$tgl;
                 $transaksi = $transaksimodel->view_by_date($tgl);
+
             }else if($filter == '2'){ // Jika filter nya 2 (per bulan)
                 $bulan = $_GET['bulan'];
                 $tahun = $_GET['tahun'];
@@ -59,39 +60,24 @@ class Laporan_Transaksi2 extends BaseController
 		if(isset($_GET['filter']) && ! empty($_GET['filter'])){ // Cek apakah user telah memilih filter dan klik tombol tampilkan
             $filter = $_GET['filter']; // Ambil data filder yang dipilih user
             if($filter == '1'){ // Jika filter nya 1 (per tanggal)
-								//$where = "name='Joe' AND status='boss' OR status='active'";
-								// $where = "DATE(tanggal)=$_GET['tanggal'];";
-									$filter_column ="DATE(tanggal)" ;
-									$filter_var = $_GET['tanggal'];
-
-
+									$tanggal = $_GET['tanggal'];
+									$where="DATE(tanggal) = '$tanggal'";
+									$ket = 'Data Transaksi Tanggal '.date('d M Y', strtotime($tanggal));
             }else if($filter == '2'){ // Jika filter nya 2 (per bulan)
-
 									$bulan =$_GET['bulan'];
 									$tahun= $_GET['tahun'];
-									$hari="01";
-									$gabung_mdy= $bulan.'/'.$hari.'/'.$tahun;
-									//$date = $tahun."-".str_pad($bulan, 2, "0", STR_PAD_LEFT) . "-" . str_pad($hari, 2, "0", STR_PAD_LEFT);
-
-									$bulan_tahun=date('Y-m', strtotime($gabung_mdy));
-									//$tahun= CONVERT(DATE_FORMAT($tahun2, "%Y"), char) ;
-									echo $gabung_mdy.'gabung mdy';
-									echo $bulan_tahun.'bulan tahu <br>';
-									// echo $date;
-									exit;
-
-									$filter_column ='DATE_FORMAT(tanggal, "%m %Y")';
-									$filter_var= strtotime($bulan_tahun);
-
-    //
-             }else{ // Jika filter nya 3 (per tahun)
-    //
-										$filter_column ="YEAR(tanggal)" ;
-										$filter_var = $_GET['tahun'];
-        					}
-        		}else{ // Jika user tidak mengklik tombol tampilkan
+									$where="MONTH(tanggal) = '$bulan' and YEAR(tanggal) = '$tahun'";
+								  $ket = 'Data Transaksi Bulan '.$nama_bulan[$bulan].' '.$tahun;
+            }else{ // Jika filter nya 3 (per tahun)
+									$filter_column ="YEAR(tanggal)" ;
+									$filter_var = $_GET['tahun'];
+									$ket = 'Data Transaksi Tahun '.$tahun;
+        		}
+      }else{ // Jika user tidak mengklik tombol tampilkan
 							$filter_column ="id_user" ;
 							$filter_var = "admin";
+							$where="id_user IN ('admin', 'koki', 'kasir')";
+							$ket = 'Data Semua Transaksi';
         }
 
 			$data['userdata'] = session('userdata');
@@ -103,13 +89,18 @@ class Laporan_Transaksi2 extends BaseController
 			$data['detail_transaksi'] = $detail_transaksi_model->select(' *,transaksi.id as id, detail_transaksi.id_transaksi as id_detail, detail_transaksi.harga as harga, detail_transaksi.jumlah as jumlah, nama_menu, id_menu')
 				->join('transaksi', 'detail_transaksi.id_transaksi=transaksi.id')
 				->join ('menu', 'detail_transaksi.id_menu= menu.id')
-				->where($filter_column, $filter_var )
-				// ->where('')
+				// ->where($filter_column, $filter_var )
+				->where($where )
 				->findAll();
-			$data['transaksi'] = $transaksi_model->select('date_format(tanggal,"%d-%m-%Y") as tanggal, total_harga,id_user,id_menu,id_transaksi, count(1) as count')->join('detail_transaksi', 'transaksi.id= detail_transaksi.id_transaksi')->where($filter_column, $filter_var ) ->orderBy('tanggal','desc') ->groupBy ('id_transaksi') ->find();
+			$data['transaksi'] = $transaksi_model->select('date_format(tanggal,"%d-%m-%Y") as tanggal, total_harga,id_user,id_menu,id_transaksi, count(1) as count')->join('detail_transaksi', 'transaksi.id= detail_transaksi.id_transaksi')
+				// ->where($filter_column, $filter_var )
+				->where($where )
+				->orderBy('tanggal','desc')
+				->groupBy ('id_transaksi')
+				->find();
 			$data['option_tahun'] = $transaksi_model->select('YEAR(tanggal) AS tahun')->orderBy('YEAR(tanggal)')->groupBy('YEAR(tanggal)')->findAll();
 			$data['option_bulan'] = $transaksi_model->select('MONTH(tanggal) AS bulan')->orderBy('MONTH(tanggal)')->groupBy('MONTH(tanggal)')->findAll();
-      // $data['ket'] = $ket;
+      $data['ket'] = $ket;
 	    // $data['url_cetak'] = base_url($url_cetak);
 	    // $data['transaksi'] = $transaksi;
 

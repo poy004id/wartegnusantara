@@ -9,8 +9,8 @@
                   <div class="col-md-12">
                       <div class="card">
                           <div class="card-header">
-                              List transaksi Makanan
-                              <a href="<?php echo base_url('transaksi/create'); ?>" class="btn btn-primary float-right">Tambah</a>
+                            <h5> <?php echo $ket ; ?></h5>
+
                           </div>
                           <div class="card-body">
 
@@ -33,7 +33,7 @@
                               </div>
                               <?php } ?>
                               <div class="card-header">
-                                  <h5 class="">Filter Laporan</h5> <br/>
+                                  <!-- <h5 class="">Filter Laporan</h5> <br/> -->
                                   <!-- <div class="form-group">
                                       <label for="">Periode</label>
                                       <select name="periode" id="periode" class="form-control">
@@ -49,9 +49,9 @@
                                       <label>Periode</label>
                                         <select name="filter" id="filter" class="form-control" onchange="myFunction()">
                                             <option value="">Pilih Periode</option>
-                                            <option value="1">Per Tanggal</option>
-                                            <option value="2">Per Bulan</option>
-                                            <option value="3">Per Tahun</option>
+                                            <option value="1">Harian</option>
+                                            <option value="2">Bulanan</option>
+                                            <option value="3">Tahunan</option>
                                         </select>
                                       </div>
 
