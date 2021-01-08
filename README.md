@@ -3,7 +3,7 @@
 
 #Instalasi Dompdf lewat composer :
 #1. composer require dompdf/dompdf 
-# print pdf blm jalan
+#print pdf blm jalan
 
 Setting database :
 1. Create database = wn2
