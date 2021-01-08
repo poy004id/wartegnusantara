@@ -71,19 +71,7 @@
                                             <?php foreach ($option_bulan as  $key => $row) : ?>
                                               <option value=" <?php echo $row['bulan'] ; ?> "> <?php echo date("F", mktime(0, 0, 0, $row['bulan'], 10)); ?> </option>
                                             <?php endforeach; ?>
-                                              <!-- <option value="">Pilih</option>
-                                              <option value="01">Januari</option>
-                                              <option value="02">Februari</option>
-                                              <option value="03">Maret</option>
-                                              <option value="04">April</option>
-                                              <option value="05">Mei</option>
-                                              <option value="06">Juni</option>
-                                              <option value="07">Juli</option>
-                                              <option value="08">Agustus</option>
-                                              <option value="09">September</option>
-                                              <option value="10">Oktober</option>
-                                              <option value="11">November</option>
-                                              <option value="12">Desember</option> -->
+
                                           </select>
                                       </div>
 
@@ -114,9 +102,9 @@
                                       <tr>
                                           <th rowspan="2" style="text-align:center; vertical-align:middle;">No</th>
                                           <th rowspan="2" style="text-align:center; vertical-align:middle;">ID</th>
-                                          <!-- <th rowspan="2">Tanggal</th> -->
+                                          <th rowspan="2" style="text-align:center; vertical-align:middle;">Tanggal</th>
                                           <th rowspan="2" style="text-align:center; vertical-align:middle;">Total Bayar </th>
-                                          <!-- <th rowspan="2">Kasir </th> -->
+                                          <th rowspan="2" style="text-align:center; vertical-align:middle;">Kasir </th>
                                           <th colspan="4" style="text-align:center; vertical-align:middle;"> Detail Transaksi </th>
 
 
@@ -134,9 +122,9 @@
 
                                           <td rowspan="<?php echo $row['count'] ?>"><?php echo $key +1; ?></td>
                                           <td rowspan="<?php echo $row['count'] ?>"><?php echo $row['id_transaksi']; ?></td>
-
+                                          <td rowspan="<?php echo $row['count'] ?>"><?php echo $row['tanggal']; ?></td>
                                           <td rowspan="<?php echo $row['count'] ?>" style="text-align:right;"><?php echo  number_format($row['total_harga'],0,",",".");  ?></td>
-
+                                          <td rowspan="<?php echo $row['count'] ?>"><?php echo $row['id_user']; ?></td>
 
                                           <?php foreach ($detail_transaksi as $key2 => $value): ?>
                                             <?php if ($row['id_transaksi'] == $value['id_transaksi']) { ?>

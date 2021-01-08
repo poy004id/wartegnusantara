@@ -141,11 +141,9 @@ class Resep extends BaseController
 					$resep_model= new Resep_model();
 					$bahan_model = new Bahan_model();
 
-					$data = array(
-							'resep' => $resep_model->where('id_menu',$id)->find( ),
-							'bahan' => $bahan_model->findAll(),
-							'userdata' => session('username')
-					);
+					$data ['resep'] = $resep_model->where('id_menu',$id)->find();
+					$data ['bahan'] = $bahan_model->findAll();
+
 					// echo "<pre>";
 					// foreach ($data['resep'] as $key => $row) {
 					// print_r($row);
@@ -154,7 +152,7 @@ class Resep extends BaseController
 					//  exit;
 
 						echo view('_partials/header', $data);
-						//echo view('_partials/sidebar');
+						echo view('_partials/sidebar');
 						echo view('resep/edit', $data);
 					 	echo view('_partials/footer');
 				}

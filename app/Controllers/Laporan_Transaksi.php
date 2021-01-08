@@ -96,7 +96,7 @@ class Laporan_Transaksi extends BaseController
       }else{ // Jika user tidak mengklik tombol tampilkan
 							$filter_column ="id_user" ;
 							$filter_var = "admin";
-							$where="id_user IN ('admin', 'koki', 'kasir')";
+							$where="id_menu > 0";
 							$ket = 'Data Semua Transaksi';
 							$url_cetak = 'Laporan_Transaksi/cetak';
         }
