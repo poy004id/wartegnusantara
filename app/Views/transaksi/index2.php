@@ -9,9 +9,13 @@
                   <div class="col-md-12">
                       <div class="card">
                           <div class="card-header">
+                            <div class="form-group col-md-6 float-left hidden">
                             <h5> <?php echo $ket ; ?></h5>
+                            </div>
                             <!-- <button type="print" class="btn btn-primary" href="<?php echo $url_cetak; ?>">Cetak</button> -->
-
+                            <div class="form-group col-md-2 float-right hidden">
+                              <a href="<?php echo $url_cetak; ?>" target="_blank" class="btn btn-sm btn-outline-info float-right">CETAK PDF</a>
+                            </div>
                           </div>
                           <div class="card-body">
 
@@ -55,9 +59,7 @@
                                             <option value="3">Tahunan</option>
                                         </select>
                                       </div>
-                                      <div class="form-group col-md-2 float-right">
-                                        <a href="<?php echo $url_cetak; ?>" target="_blank" class="btn btn-sm btn-outline-info">CETAK PDF</a><br /><br />
-                                      </div>
+
                                       <div class="form-group col-md-3" id="form-tanggal" style="display: none;">
                                           <label>Tanggal</label><br>
                                           <input type="date" name="tanggal" class="input-tanggal form-control" />

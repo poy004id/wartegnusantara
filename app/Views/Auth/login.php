@@ -90,7 +90,7 @@
         <div class="row">
           <div class="col-8">
             <p class="mb-0">
-              <a href="<?php echo base_url('auth/register'); ?>" class="text-center">Register</a>
+              <!-- <a href="<?php echo base_url('auth/register'); ?>" class="text-center">Register</a> -->
             </p>
           </div>
           <div class="col-4">

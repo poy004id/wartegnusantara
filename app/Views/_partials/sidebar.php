@@ -40,7 +40,7 @@
                             </a>
                           </li>
                           <li class="nav-item">
-                            <a href="<?php echo base_url('menu'); ?>" class="nav-link">
+                            <a href="<?php echo base_url('bahan'); ?>" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Daftar Bahan</p>
                             </a>

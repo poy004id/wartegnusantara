@@ -66,7 +66,7 @@
                       </div>
                       <div class="form-group">
                           <label for="">Kasir</label>
-                          <input type="text" id="kasir" name="kasir" value="<?= $userdata?>" class="form-control" readonly>
+                          <input type="text" id="kasir" name="kasir" value="<?= $userdata['username']?>" class="form-control" readonly>
                       </div>
                     </div>
                   </div>
