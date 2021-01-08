@@ -18,31 +18,55 @@
 
     <hr/>
     <b><center><?php echo $ket; ?></center></b><br /><br />
-    
-  <table border="1" cellpadding="8">
-  <tr>
-    <th>No</th>
-    <th>Tanggal</th>
-    <th>Kode Transaksi</th>
-    <th>Total Harga</th>
-  </tr>
 
-    <?php
-      if( ! empty($transaksi)){
-        $no = 1;
-        foreach($transaksi as $key => $data){
-              $tgl = date('d-m-Y', strtotime($data['tanggal']));
-              
-          echo "<tr>";
-          echo "<td>".$no++."</td>";
-          echo "<td>".$tgl."</td>";
-          echo "<td>".$data['id']."</td>";
-          echo "<td>".'Rp '.number_format($data['total_harga'])."</td>";
-          echo "</tr>";
-          $no++;
-        }
-      }
-      ?>
-  </table>
+  
+
+  <table class="table table-bordered table-hovered">
+      <thead>
+          <tr>
+              <th rowspan="2" style="text-align:center; vertical-align:middle;">No</th>
+              <th rowspan="2" style="text-align:center; vertical-align:middle;">ID</th>
+              <!-- <th rowspan="2">Tanggal</th> -->
+              <th rowspan="2" style="text-align:center; vertical-align:middle;">Total Bayar </th>
+              <!-- <th rowspan="2">Kasir </th> -->
+              <th colspan="4" style="text-align:center; vertical-align:middle;"> Detail Transaksi </th>
+
+
+          </tr>
+          <tr>
+            <th style="text-align:center; vertical-align:middle;">Menu</th>
+            <th style="text-align:center; vertical-align:middle;">Jumlah</th>
+            <th style="text-align:center; vertical-align:middle;">Harga</th>
+            <th style="text-align:center; vertical-align:middle;">Total Harga</th>
+          </tr>
+      </thead>
+      <tbody>
+          <?php foreach($transaksi as $key => $row){ ?>
+          <tr >
+
+              <td rowspan="<?php echo $row['count'] ?>"><?php echo $key +1; ?></td>
+              <td rowspan="<?php echo $row['count'] ?>"><?php echo $row['id_transaksi']; ?></td>
+
+              <td rowspan="<?php echo $row['count'] ?>" style="text-align:right;"><?php echo  number_format($row['total_harga'],0,",",".");  ?></td>
+
+
+              <?php foreach ($detail_transaksi as $key2 => $value): ?>
+                <?php if ($row['id_transaksi'] == $value['id_transaksi']) { ?>
+                <td style=""><?php echo $value['nama_menu']; ?></td>
+                  <td style=""><?php echo $value['jumlah']; ?></td>
+                  <td  style=" text-align:right;"><?php echo number_format($value['harga'],0,",",".");  ?></td>
+                  <td style="text-align:right;"><?php echo number_format($value['jumlah']*$value['harga'],0,",",".");  ?></td>
+                  </tr>
+                <?php } ?>
+
+              <?php endforeach; ?>
+          </tr>
+        <?php } ?>
+         <!-- end foreach -->
+      </tbody>
+    </table>
+
+
+
 </body>
 </html>
